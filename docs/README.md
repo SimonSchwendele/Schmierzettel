@@ -177,4 +177,4 @@ gitGraph
 * Entwicklern eines Features erhalten etwas mehr Freiheiten während der Entwicklung
 
 ## Nachteile ( CMI )
-* Neues Versionierungsmodell muss erst kommuniziert werdend Sch
+* Neues Versionierungsmodell muss erst kommuniziert werdend
