@@ -108,6 +108,9 @@ Eine alternative ist hierzu das sog. TrunkBasedDevelopment.
 Der grosse Vorteil dieser Methodik liegt darin, dass deutlich weniger Branches existieren.  
 Dadruch werden weniger cherrypicks und Tests älterer Stände benötigt und erlauben mehr Zeit für die tatsächliche Entwicklung des Produkts.
 
+Dieses Verahren wird in der CMI bereits für die **meisten Microservices** ( STS, WebDav, Push, etc.) verwendet.
+Weiterhin wurde zB das **GWR3.0** Projekt nach diesem Stil erfolgreich entwickelt.
+
 ```mermaid
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true, 'showCommitLabel':true,'mainBranchName': 'master'}} }%%
 gitGraph
@@ -160,4 +163,18 @@ gitGraph
         checkout master
         merge featureA
 ```
+## Vorteile
+* Immens weniger Wartungsaufwand durch weniger Branches 
+* Sehr gute Integration in CI/CD Workflows
+* Schnellere Releases
+* Nur selten merge Konflikte
+* Keine "Feature Freezes" benötigt
+* Entwicklern eines Features erhalten etwas mehr Freiheiten während der Entwicklung
 
+## Nachteile
+* In der Realität nur zusammen mit CI/CD hilfreich ( Ist im CMI System bereits vorhanden )
+* Langlebige Feature Branches müssen ca alle 1-2 Wochen gerebased werden um merge Konflikte zu vermeiden
+* Entwicklern eines Features erhalten etwas mehr Freiheiten während der Entwicklung
+
+## Nachteile ( CMI )
+* Neues Versionierungsmodell muss erst kommuniziert werdend Sch
