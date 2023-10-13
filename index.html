@@ -1,0 +1,336 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.5" name="generator"/>
+<title>Schmierzettel</title>
+<link href="assets/stylesheets/main.6a10b989.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="css/cmistyle.css" rel="stylesheet"/>
+<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="light-blue" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#softwareentwicklungsprozess-mit-github">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Schmierzettel" class="md-header__button md-logo" data-md-component="logo" href="." title="Schmierzettel">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Schmierzettel
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              SoftwareentwicklungsProzess mit Git
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href=".">
+        
+  
+    
+  
+  SoftwareentwicklungsProzess mit Git
+
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Schmierzettel" class="md-nav__button md-logo" data-md-component="logo" href="." title="Schmierzettel">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Schmierzettel
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href=".">
+<span class="md-ellipsis">
+    SoftwareentwicklungsProzess mit Git
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="softwareentwicklungsprozess-mit-github">SoftwareentwicklungsProzess mit Github</h1>
+<p>Git erlaubt es allen Entwicklern gleichzeitig Features zu entwickeln.<br/>
+Hierzu existieren diverse Techniken Git zu nutzen.
+Die bekanntesten hierbei sind:</p>
+<ul>
+<li>Git Flow</li>
+<li>Git(Hub) Flow</li>
+<li>Trunk-based </li>
+</ul>
+<p>Der Github Flow ist eine vereinfachte Version des von der CMI verwendeten Git Flows.<br/>
+Für grössere Organisationen ist dieser Workflow völlig ungeeignet, weshalb dieser Aufschrieb nicht weiter darauf eingehen wird.</p>
+<h1 id="git-flow">Git Flow</h1>
+<p>Der Gitflow ist der älteste Workflow und ist zusammen mit Git und Github gewachsen.<br/>
+In der CMI wird dieser Workflow ebenfalls verwendet und sieht hierbei ungefähr so aus:</p>
+<pre class="mermaid"><code>%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true, 'showCommitLabel':true,'mainBranchName': 'master'}} }%%
+gitGraph
+        commit
+        branch develop
+        branch featureA
+        branch featureB
+        branch v.23.0
+        branch release/v23.0.1
+        branch v.23.1
+        branch release/v.23.1.1
+        checkout featureA
+        commit
+        commit
+        checkout featureB
+        commit
+        commit
+        checkout featureA
+        commit
+        checkout featureB
+        commit
+        checkout develop
+        merge featureA tag: "0.1.0"
+        checkout featureB
+        commit
+        merge develop
+        commit
+        commit
+        checkout develop
+        merge featureB tag: "0.1.0"
+        checkout v.23.0
+        merge develop
+        checkout master
+        merge v.23.0 tag: "v.23.0.0"
+        branch featureC
+        merge develop
+        commit id:"cc1"
+        commit id: "cc2"
+        checkout develop
+        merge featureC
+        checkout release/v23.0.1
+        cherry-pick id: "cc1"
+        cherry-pick id: "cc2"
+        branch featureD
+        merge develop
+        commit id:"dc1"
+        commit id: "dc2"
+        checkout develop
+        merge featureD
+        checkout release/v23.0.1
+        cherry-pick id: "dc1"
+        cherry-pick id: "dc2"
+        checkout release/v.23.1.1
+        cherry-pick id: "dc1"
+        cherry-pick id: "dc2"
+        checkout v.23.0
+        merge release/v23.0.1
+        checkout master
+        merge v.23.0 tag: "v.23.0.1"
+        checkout v.23.1
+        merge release/v.23.1.1
+        checkout master
+        merge release/v.23.1.1 tag: "v.23.1.1"
+</code></pre>
+<p>Der Grundbaustein sind hier der trunks <strong>master</strong> und <strong>develop</strong>. 
+Umkreist werden diese dann von FeatureBranches, Bugfixbranches, Hotfix branches.</p>
+<p>Zusätzlich existieren dann allerdings viele trunk-ähnlichen release branches, die in der CMI dann nach dem Entwicklungsjahr benannt sind ( e.g v.23.X )</p>
+<h2 id="vorteile">Vorteile</h2>
+<ul>
+<li>Entwicklker können vollständig dezentralisiert arbeiten und müssen nur hin und wieder ihren jeweiligen Trunk mergen</li>
+<li>Einfacher Einstieg nach Git</li>
+<li>Klare Trennung zwischen Entwicklungs und Produktionsständen</li>
+</ul>
+<h2 id="nachteile">Nachteile</h2>
+<ul>
+<li>Die gewaltige Menge an Releases und Patch branches macht es fast unmöglich noch eine Übersicht zu behalten</li>
+<li>Cherrypicks in die ReleaseBranches werden benötigt, wodurch unerwünschte Seiteneffekte durch picken in der falschen Reihenfolge oder Merge Konfltikte passieren</li>
+<li>Merge Konflikte sind gross und Komplex und benötigen des Öfteren einen "Git Profi", der diese dann löst</li>
+<li>Sehr träge ReleaseFrequenz</li>
+</ul>
+<h2 id="nachteile-cmi">Nachteile ( CMI )</h2>
+<ul>
+<li>Features müssen gebackported werden und erzeugen die Gefahr unerwünschter Seiteneffekte</li>
+<li>FeatureBackporting oft nicht möglich durch eine veränderte Codebasis und benötigt dadurch veränderten Code zwischen KV und Kundenstand</li>
+<li>Features werden vor der Freigabe eines Releases kaum getestet</li>
+<li>Viele verschiedene ReleaseStände ( Projektreleases !), obwohl der GitFlow traditionell nur einen release branch vorsieht</li>
+<li>Dll patches nehmen selbst den freigegebenen Ständen ihre Homogenität</li>
+</ul>
+<h1 id="trunkbased-development">Trunkbased Development</h1>
+<p>Eine alternative ist hierzu das sog. TrunkBasedDevelopment.<br/>
+Der grosse Vorteil dieser Methodik liegt darin, dass deutlich weniger Branches existieren.<br/>
+Dadruch werden weniger cherrypicks und Tests älterer Stände benötigt und erlauben mehr Zeit für die tatsächliche Entwicklung des Produkts.</p>
+<p>Dieses Verahren wird in der CMI bereits für die <strong>meisten Microservices</strong> ( STS, WebDav, Push, etc.) verwendet.
+Weiterhin wurde zB das <strong>GWR3.0</strong> Projekt nach diesem Stil erfolgreich entwickelt.</p>
+<pre class="mermaid"><code>%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true, 'showCommitLabel':true,'mainBranchName': 'master'}} }%%
+gitGraph
+        commit
+        branch Task1
+        branch Task2
+        checkout Task1
+        commit
+        commit
+
+        checkout Task2
+        commit
+        checkout master
+        merge Task2 id: "23.4.0" type: HIGHLIGHT
+        checkout Task1
+        merge master
+        commit
+        checkout master
+        merge Task1 id: "23.5.0" type: HIGHLIGHT
+        branch featureA
+        branch A/Task1
+        branch A/Task2
+        checkout featureA
+        commit id: "initial"
+        checkout A/Task1
+        commit
+        commit
+        checkout A/Task2
+        commit
+        checkout featureA
+        merge A/Task2
+        checkout A/Task1
+        merge featureA
+        checkout master
+        branch Task3
+        commit
+        checkout master
+        branch bugfix1
+        commit
+        checkout master
+        merge bugfix1 id: "23.5.1"
+        merge Task3 id: "23.6.0" type: HIGHLIGHT
+        checkout featureA
+        merge master
+        checkout A/Task1
+        merge featureA
+        commit
+        checkout featureA
+        merge A/Task1
+        checkout master
+        merge featureA
+</code></pre>
+<h2 id="vorteile_1">Vorteile</h2>
+<ul>
+<li>Immens weniger Wartungsaufwand durch weniger Branches </li>
+<li>Sehr gute Integration in CI/CD Workflows</li>
+<li>Schnellere Releases</li>
+<li>Nur selten merge Konflikte</li>
+<li>Keine "Feature Freezes" benötigt</li>
+<li>Entwicklern eines Features erhalten etwas mehr Freiheiten während der Entwicklung</li>
+</ul>
+<h2 id="nachteile_1">Nachteile</h2>
+<ul>
+<li>In der Realität nur zusammen mit CI/CD hilfreich ( Ist im CMI System bereits vorhanden )</li>
+<li>Langlebige Feature Branches müssen ca alle 1-2 Wochen gerebased werden um merge Konflikte zu vermeiden</li>
+<li>Entwicklern eines Features erhalten etwas mehr Freiheiten während der Entwicklung</li>
+</ul>
+<h2 id="nachteile-cmi_1">Nachteile ( CMI )</h2>
+<ul>
+<li>Neues Versionierungsmodell muss erst kommuniziert werdend</li>
+</ul>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "toc.integrate"], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="assets/javascripts/bundle.aecac24b.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+window.mermaidConfig = {default: {
+    startOnLoad: false
+}};</script></body>
+</html>
