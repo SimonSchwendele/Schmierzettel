@@ -1,0 +1,25 @@
+site_name: Schmierzettel
+docs_dir: docs
+nav:
+  - "SoftwareentwicklungsProzess mit Git": "README.md"
+
+plugins:
+  - search
+  - mermaid2
+theme:
+  name: material
+  palette:
+    primary: light blue
+    scheme: default
+  features:
+    - navigation.tabs
+    - toc.integrate
+extra_css:
+  - css/cmistyle.css
+markdown_extensions:
+  - pymdownx.superfences:
+        # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
