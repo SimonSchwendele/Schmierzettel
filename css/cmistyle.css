@@ -11,3 +11,7 @@
 .md-typeset a:hover, .md-nav__link a:hover {
     color: var(--md-footer-bg-color) !important;
 }
+
+.md-grid {
+  max-width: 100%;
+}
