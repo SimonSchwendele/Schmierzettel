@@ -138,33 +138,33 @@ Die bekanntesten hierbei sind:</p>
 <li>Trunk-based </li>
 </ul>
 <p>Der Github Flow ist eine vereinfachte Version des von der CMI verwendeten Git Flows.<br/>
-Für grössere Organisationen ist dieser Workflow völlig ungeeignet, weshalb hier nicht weiter auf diesen eingegangen wird.
+Für grössere Organisationen ist dieser Workflow völlig ungeeignet, weshalb hier nicht weiter auf diesen eingegangen wird.<br/>
 Infos zu diesem Flow lassen sich <a href="https://docs.github.com/en/get-started/quickstart/github-flow">direkt bei Github</a> finden.</p>
 <h1 id="terminologie">Terminologie</h1>
-<p>Die in der CMI verwendete Versionierungs-Software lautet git, bzw. Github in seiner libgit2 Implementation.
-Git bietet hier viele Funktionalitäten.
+<p>Die in der CMI verwendete Versionierungs-Software lautet git, bzw. Github in seiner libgit2 Implementation.<br/>
+Git bietet hier viele Funktionalitäten.<br/>
 In diesem Dokument werden die Folgenden genutzt:</p>
 <h2 id="branch">Branch</h2>
-<p>Ein Branch bildet einen Zustand des vollsändigen Codes ab und funigert damit quasi als Zeiger auf einen bestimmten <a href="#commit">Commit</a> 
-Releases werden stets aus einem Branch heraus erstellt.
+<p>Ein Branch bildet einen Zustand des vollsändigen Codes ab und funigert damit quasi als Zeiger auf einen bestimmten <a href="#commit">Commit</a>.<br/>
+Releases werden stets aus einem Branch heraus erstellt.<br/>
 Ein Branch wird in den folgenden Graphen als Linie dargestellt</p>
 <h2 id="commit">Commit</h2>
-<p>Ein Commit bildet eine Art Snapshot, der die Änderungen des Entwicklers enthält.
-Wenn ein Release gebaut wird, geschieht dies im Regelfall auf dem aktuellsten Commit des <a href="#branch">Branches</a>.
+<p>Ein Commit bildet eine Art Snapshot, der die Änderungen des Entwicklers enthält.<br/>
+Wenn ein Release gebaut wird, geschieht dies im Regelfall auf dem aktuellsten Commit des <a href="#branch">Branches</a>.<br/>
 Ein Commit wird in den folgenden Graphen als Knoten dargestellt.</p>
 <h2 id="merge">Merge</h2>
-<p>Als merge wird der Vorgang bezeichnet, der alle Commits ( und somit alle Änderungen ) eines Branches in einen anderen Branch übernimmt.
-Im Regelfall passiert das, sobald die Entwicklung eines Youtrack issues abgeschlossen ist.
+<p>Als merge wird der Vorgang bezeichnet, der alle Commits ( und somit alle Änderungen ) eines Branches in einen anderen Branch übernimmt.<br/>
+Im Regelfall passiert das, sobald die Entwicklung eines Youtrack issues abgeschlossen ist.<br/>
 Der initiierende Branch des Merges wird im Anschluss an den Vorgang gelöscht.</p>
 <h2 id="cherrypick">CherryPick</h2>
-<p>Der CherryPick erlaubt es, einen beliebigen <a href="#commit">Commit</a> an der Spitze eines anderen <a href="#branch">Branches</a> zu duplizieren.
+<p>Der CherryPick erlaubt es, einen beliebigen <a href="#commit">Commit</a> an der Spitze eines anderen <a href="#branch">Branches</a> zu duplizieren.<br/>
 Während der <a href="#merge">merge</a> es noch erzwingt, dass beide Branches den gleichen Ursprung haben ( zB aus dem gleichen Branch heraus entstanden sind ),<br/>
-muss für einen CherryPick diese Bedingung nicht erfüllt sein.
-In der Praxis geht das Brechen dieser Bedingung oft mit MergeKonflikten oder unerwünschten Seiteneffekten einher. 
+muss für einen CherryPick diese Bedingung nicht erfüllt sein.<br/>
+In der Praxis geht das Brechen dieser Bedingung oft mit MergeKonflikten oder unerwünschten Seiteneffekten einher.<br/>
 Mit der steigenden Anzahl an CherryPicks wächst dieses Gefahrenpotential exponentiell.</p>
 <h1 id="git-flow">Git Flow</h1>
 <p>Der Gitflow ist der älteste Workflow und ist zusammen mit Git und Github gewachsen.<br/>
-In der CMI wird dieser Workflow ebenfalls verwendet und kann dann beispielsweise so aussehen:</p>
+In der CMI wird dieser Workflow ebenfalls verwendet und kann dann beispielsweise so aussehen:  </p>
 <pre class="mermaid"><code>%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true, 'showCommitLabel':true,'mainBranchName': 'master'}} }%%
 gitGraph
         commit
@@ -228,10 +228,10 @@ gitGraph
         checkout master
         merge release/v.23.1.1 tag: "v.23.1.1"
 </code></pre>
-<p>Die wichtigsten Branches tragen hierbei den Namen <strong>master</strong> und <strong>develop</strong>.
+<p>Die wichtigsten Branches tragen hierbei den Namen <strong>master</strong> und <strong>develop</strong>.<br/>
 Den Branch <strong>master</strong> ( neuerdings auch gerne <strong>main</strong> ) bezeichnet man ebenfalls als "Trunk".<br/>
-So wie bei einem echten Baum wird der Baumstumpf nie entfernt, sollte nicht der ganze Baum entfernt werden.</p>
-<p>Umkreist werden diese Branches dann von FeatureBranches, Bugfixbranches, Hotfix branches.
+So wie bei einem echten Baum wird der Baumstumpf nie entfernt, sollte nicht der ganze Baum entfernt werden.  </p>
+<p>Umkreist werden diese Branches dann von FeatureBranches, Bugfixbranches, Hotfix branches.<br/>
 Zusätzlich existieren allerdings viele trunk-ähnlichen release Branches, die in der CMI dann nach dem Entwicklungsjahr benannt sind ( e.g v.23.X )</p>
 <h2 id="vorteile">Vorteile</h2>
 <ul>
@@ -250,7 +250,7 @@ Zusätzlich existieren allerdings viele trunk-ähnlichen release Branches, die i
 <ul>
 <li>Features müssen gebackported werden und erzeugen die Gefahr unerwünschter Seiteneffekte</li>
 <li>FeatureBackporting ist oft durch die veränderte Codebasis nicht möglich und benötigt dadurch veränderten Code zwischen dem Trunk, der auf der KV getestet wird,<br/>
-  und dem Release Stand, der Schlussendlich an die Kunden verteilt wird.</li>
+  und dem Release Stand, der Schlussendlich an die Kunden verteilt wird</li>
 <li>Features werden vor der Freigabe eines Releases kaum getestet ( hängt allerdings nur indirekt mit dem ReleaseModell zusammen )</li>
 <li>Viele verschiedene ReleaseStände ( Projektreleases !), obwohl der GitFlow traditionell nur einen einzigen Release Branch vorsieht</li>
 <li>Dll patches nehmen selbst den freigegebenen Ständen ihre Homogenität</li>
@@ -258,10 +258,10 @@ Zusätzlich existieren allerdings viele trunk-ähnlichen release Branches, die i
 <h1 id="trunkbased-development">Trunkbased Development</h1>
 <p>Eine Alternative ist hierzu das sog. TrunkBasedDevelopment.<br/>
 Der grosse Vorteil dieser Methodik liegt darin, dass deutlich weniger Branches existieren.<br/>
-Dadruch werden weniger Cherrypicks und Tests älterer Stände benötigt.
-Als Ergebnis erzeugt dies mehr Zeit für die tatsächliche Entwicklung des Produkts.</p>
-<p>Dieses Verahren wird in der CMI bereits für die <strong>meisten Microservices</strong> ( STS, WebDav, Push, etc.) verwendet.
-Weiterhin wurde zB das <strong>GWR3.0</strong> Projekt nach diesem Stil erfolgreich entwickelt.</p>
+Dadruch werden weniger Cherrypicks und Tests älterer Stände benötigt.<br/>
+Als Ergebnis erzeugt dies mehr Zeit für die tatsächliche Entwicklung des Produkts.  </p>
+<p>Dieses Verahren wird in der CMI bereits für die <strong>meisten Microservices</strong> ( STS, WebDav, Push, etc.) verwendet.<br/>
+Weiterhin wurde zB das <strong>GWR3.0</strong> Projekt nach diesem Stil erfolgreich entwickelt.  </p>
 <pre class="mermaid"><code>%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true, 'showCommitLabel':true,'mainBranchName': 'master'}} }%%
 gitGraph
         commit
@@ -315,7 +315,7 @@ gitGraph
 </code></pre>
 <h2 id="vorteile_1">Vorteile</h2>
 <ul>
-<li>Immens weniger Wartungsaufwand durch weniger Branches </li>
+<li>Immens weniger Wartungsaufwand durch weniger Branches</li>
 <li>Sehr gute Integration in CI/CD Workflows erlaubt es zB dem PM ein Feature wöhrend der Entwicklung tatsächlich "wachsen zu sehen"</li>
 <li>Schnellere Releases</li>
 <li>Nur selten Konflikte während des <a href="#merge">Merges</a></li>
@@ -333,7 +333,7 @@ gitGraph
 <h2 id="nachteile-cmi_1">Nachteile ( CMI )</h2>
 <ul>
 <li>Neues Versionierungsmodell muss erst kommuniziert werden</li>
-<li>Möglicherweise fehlt bei manchen Kunden die Akzeptanz für dieses Model.</li>
+<li>Möglicherweise fehlt bei manchen Kunden die Akzeptanz für dieses Model</li>
 </ul>
 </article>
 </div>
