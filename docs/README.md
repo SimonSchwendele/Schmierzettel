@@ -18,7 +18,7 @@ Git bietet hier viele Funktionalitäten.
 In diesem Dokument werden die Folgenden genutzt:
 
 ## Branch
-Ein Branch bildet einen Zustand des vollsändigen Codes ab und funigert damit quasi als Zeiger auf einen bestimmten [Commit](#commit).  
+Ein Branch bildet einen Zustand des vollständigen Codes ab und fungiert damit quasi als Zeiger auf einen bestimmten [Commit](#commit).  
 Releases werden stets aus einem Branch heraus erstellt.  
 Ein Branch wird in den folgenden Graphen als Linie dargestellt
 
