@@ -2174,155 +2174,2043 @@ BenchmarkDotNet v0.13.12, Windows 10 (10.0.19045.3930/22H2/2022Update)
   .NET 6.0           : .NET 6.0.26 (6.0.2623.60508), X64 RyuJIT AVX2
   .NET 8.0           : .NET 8.0.1 (8.0.123.58001), X64 RyuJIT AVX2
   .NET Framework 4.8 : .NET Framework 4.8 (4.8.4645.0), X64 RyuJIT VectorSize=256
-
-
-| Method                       | Job                | Runtime            | Mean              | Error          | StdDev          | Median            | Ratio          | RatioSD      | Gen0   | Allocated | Alloc Ratio |
-|----------------------------- |------------------- |------------------- |------------------:|---------------:|----------------:|------------------:|---------------:|-------------:|-------:|----------:|------------:|
-| AnySmall                     | Job-FQEJOX         | .NET 7.0           |         5.5193 ns |      0.1327 ns |       0.2180 ns |         5.4247 ns |         65.202 |         9.06 |      - |         - |          NA |
-| AnyMedium                    | Job-FQEJOX         | .NET 7.0           |         5.1544 ns |      0.0087 ns |       0.0073 ns |         5.1556 ns |         58.754 |         9.03 |      - |         - |          NA |
-| AnyBig                       | Job-FQEJOX         | .NET 7.0           |         5.6388 ns |      0.0147 ns |       0.0137 ns |         5.6380 ns |         64.855 |         9.31 |      - |         - |          NA |
-| AnyBigList                   | Job-FQEJOX         | .NET 7.0           |         3.4669 ns |      0.0104 ns |       0.0087 ns |         3.4654 ns |         39.521 |         6.10 |      - |         - |          NA |
-| AnyBigHashet                 | Job-FQEJOX         | .NET 7.0           |         3.4412 ns |      0.0104 ns |       0.0097 ns |         3.4423 ns |         39.574 |         5.64 |      - |         - |          NA |
-| AnyBigEnum                   | Job-FQEJOX         | .NET 7.0           |        11.7390 ns |      0.0935 ns |       0.0829 ns |        11.7125 ns |        134.898 |        20.21 | 0.0032 |      40 B |          NA |
-| LenghtSmall                  | Job-FQEJOX         | .NET 7.0           |         0.0000 ns |      0.0000 ns |       0.0000 ns |         0.0000 ns |          0.000 |         0.00 |      - |         - |          NA |
-| LenghtMedium                 | Job-FQEJOX         | .NET 7.0           |         0.0005 ns |      0.0020 ns |       0.0016 ns |         0.0000 ns |          0.005 |         0.02 |      - |         - |          NA |
-| LenghtBig                    | Job-FQEJOX         | .NET 7.0           |         0.0003 ns |      0.0008 ns |       0.0008 ns |         0.0000 ns |          0.004 |         0.01 |      - |         - |          NA |
-| LenghtBigList                | Job-FQEJOX         | .NET 7.0           |         0.0002 ns |      0.0007 ns |       0.0006 ns |         0.0000 ns |          0.002 |         0.01 |      - |         - |          NA |
-| LenghtBigHashet              | Job-FQEJOX         | .NET 7.0           |         0.0024 ns |      0.0024 ns |       0.0020 ns |         0.0023 ns |          0.027 |         0.02 |      - |         - |          NA |
-| LenghtBigEnum                | Job-FQEJOX         | .NET 7.0           | 2,226,575.1302 ns | 17,281.0371 ns |  16,164.6929 ns | 2,232,578.9062 ns | 25,624,584.160 | 3,797,599.39 |      - |      42 B |          NA |
-| TakeCountSmall               | Job-FQEJOX         | .NET 7.0           |        22.8527 ns |      0.2173 ns |       0.1815 ns |        22.8633 ns |        260.402 |        39.29 | 0.0038 |      48 B |          NA |
-| TakeCountMedium              | Job-FQEJOX         | .NET 7.0           |        24.4885 ns |      0.2504 ns |       0.2342 ns |        24.5083 ns |        281.775 |        41.39 | 0.0038 |      48 B |          NA |
-| TakeCountBig                 | Job-FQEJOX         | .NET 7.0           |        22.7268 ns |      0.2396 ns |       0.2241 ns |        22.8053 ns |        261.403 |        37.73 | 0.0038 |      48 B |          NA |
-| TakeCountBigList             | Job-FQEJOX         | .NET 7.0           |        20.2234 ns |      0.1097 ns |       0.0973 ns |        20.2509 ns |        232.443 |        35.16 | 0.0038 |      48 B |          NA |
-| TakeCountBigHashet           | Job-FQEJOX         | .NET 7.0           |        30.9384 ns |      0.1732 ns |       0.1620 ns |        31.0010 ns |        355.901 |        51.69 | 0.0076 |      96 B |          NA |
-| TakeCountBigEnum             | Job-FQEJOX         | .NET 7.0           |        26.0982 ns |      0.3957 ns |       0.3702 ns |        26.0341 ns |        300.198 |        43.41 | 0.0076 |      96 B |          NA |
-| EnumeratorCheckSmall         | Job-FQEJOX         | .NET 7.0           |         5.9595 ns |      0.0359 ns |       0.0336 ns |         5.9563 ns |         68.551 |         9.91 |      - |         - |          NA |
-| EnumeratorCheckMedium        | Job-FQEJOX         | .NET 7.0           |         5.9652 ns |      0.0330 ns |       0.0309 ns |         5.9524 ns |         68.601 |         9.78 |      - |         - |          NA |
-| EnumeratorCheckBig           | Job-FQEJOX         | .NET 7.0           |         6.4964 ns |      0.0572 ns |       0.0535 ns |         6.4886 ns |         74.742 |        10.93 |      - |         - |          NA |
-| EnumeratorCheckBigList       | Job-FQEJOX         | .NET 7.0           |         4.0621 ns |      0.0266 ns |       0.0248 ns |         4.0571 ns |         46.736 |         6.86 |      - |         - |          NA |
-| EnumeratorCheckBigHashset    | Job-FQEJOX         | .NET 7.0           |         4.0694 ns |      0.0236 ns |       0.0209 ns |         4.0658 ns |         46.750 |         6.90 |      - |         - |          NA |
-| EnumeratorCheckBigEnumerable | Job-FQEJOX         | .NET 7.0           |        14.7422 ns |      0.0895 ns |       0.0837 ns |        14.7575 ns |        169.591 |        24.59 | 0.0032 |      40 B |          NA |
-| AnySmall                     | Job-DISSLE         | .NET 8.0           |         5.4162 ns |      0.1301 ns |       0.1278 ns |         5.3537 ns |         62.244 |         8.54 |      - |         - |          NA |
-| AnyMedium                    | Job-DISSLE         | .NET 8.0           |         5.2541 ns |      0.0240 ns |       0.0213 ns |         5.2591 ns |         60.364 |         8.95 |      - |         - |          NA |
-| AnyBig                       | Job-DISSLE         | .NET 8.0           |         5.2532 ns |      0.0234 ns |       0.0208 ns |         5.2545 ns |         60.346 |         8.89 |      - |         - |          NA |
-| AnyBigList                   | Job-DISSLE         | .NET 8.0           |         2.1404 ns |      0.0248 ns |       0.0220 ns |         2.1382 ns |         24.620 |         3.87 |      - |         - |          NA |
-| AnyBigHashet                 | Job-DISSLE         | .NET 8.0           |         2.1367 ns |      0.0214 ns |       0.0200 ns |         2.1318 ns |         24.567 |         3.47 |      - |         - |          NA |
-| AnyBigEnum                   | Job-DISSLE         | .NET 8.0           |        10.3076 ns |      0.0988 ns |       0.0924 ns |        10.3198 ns |        118.566 |        17.16 | 0.0032 |      40 B |          NA |
-| LenghtSmall                  | Job-DISSLE         | .NET 8.0           |         0.0001 ns |      0.0002 ns |       0.0002 ns |         0.0000 ns |          0.001 |         0.00 |      - |         - |          NA |
-| LenghtMedium                 | Job-DISSLE         | .NET 8.0           |         0.0001 ns |      0.0004 ns |       0.0004 ns |         0.0000 ns |          0.001 |         0.00 |      - |         - |          NA |
-| LenghtBig                    | Job-DISSLE         | .NET 8.0           |         0.0009 ns |      0.0009 ns |       0.0009 ns |         0.0008 ns |          0.011 |         0.01 |      - |         - |          NA |
-| LenghtBigList                | Job-DISSLE         | .NET 8.0           |         0.0003 ns |      0.0005 ns |       0.0005 ns |         0.0000 ns |          0.003 |         0.00 |      - |         - |          NA |
-| LenghtBigHashet              | Job-DISSLE         | .NET 8.0           |         0.0000 ns |      0.0001 ns |       0.0001 ns |         0.0000 ns |          0.000 |         0.00 |      - |         - |          NA |
-| LenghtBigEnum                | Job-DISSLE         | .NET 8.0           |   661,041.0095 ns | 12,414.3956 ns |  12,192.5964 ns |   661,278.4180 ns |  7,595,090.687 | 1,066,456.21 |      - |      40 B |          NA |
-| TakeCountSmall               | Job-DISSLE         | .NET 8.0           |        16.5871 ns |      0.3065 ns |       0.2560 ns |        16.5038 ns |        189.334 |        31.13 | 0.0038 |      48 B |          NA |
-| TakeCountMedium              | Job-DISSLE         | .NET 8.0           |        16.4673 ns |      0.1167 ns |       0.1091 ns |        16.4832 ns |        189.470 |        27.73 | 0.0038 |      48 B |          NA |
-| TakeCountBig                 | Job-DISSLE         | .NET 8.0           |        17.4318 ns |      0.1367 ns |       0.1279 ns |        17.4259 ns |        200.547 |        29.32 | 0.0038 |      48 B |          NA |
-| TakeCountBigList             | Job-DISSLE         | .NET 8.0           |        12.6229 ns |      0.1297 ns |       0.1083 ns |        12.5937 ns |        143.948 |        22.60 | 0.0038 |      48 B |          NA |
-| TakeCountBigHashet           | Job-DISSLE         | .NET 8.0           |        22.1075 ns |      0.2167 ns |       0.2027 ns |        22.1383 ns |        254.360 |        37.33 | 0.0076 |      96 B |          NA |
-| TakeCountBigEnum             | Job-DISSLE         | .NET 8.0           |        19.4930 ns |      0.2367 ns |       0.1976 ns |        19.4981 ns |        222.361 |        35.57 | 0.0076 |      96 B |          NA |
-| EnumeratorCheckSmall         | Job-DISSLE         | .NET 8.0           |         5.2012 ns |      0.0294 ns |       0.0275 ns |         5.1994 ns |         59.833 |         8.68 |      - |         - |          NA |
-| EnumeratorCheckMedium        | Job-DISSLE         | .NET 8.0           |         5.2079 ns |      0.0542 ns |       0.0507 ns |         5.2125 ns |         59.908 |         8.66 |      - |         - |          NA |
-| EnumeratorCheckBig           | Job-DISSLE         | .NET 8.0           |         5.4552 ns |      0.1309 ns |       0.1703 ns |         5.4111 ns |         62.725 |         9.20 |      - |         - |          NA |
-| EnumeratorCheckBigList       | Job-DISSLE         | .NET 8.0           |         1.6329 ns |      0.0244 ns |       0.0204 ns |         1.6312 ns |         18.626 |         2.96 |      - |         - |          NA |
-| EnumeratorCheckBigHashset    | Job-DISSLE         | .NET 8.0           |         1.9001 ns |      0.0196 ns |       0.0183 ns |         1.9052 ns |         21.867 |         3.22 |      - |         - |          NA |
-| EnumeratorCheckBigEnumerable | Job-DISSLE         | .NET 8.0           |         9.4113 ns |      0.1107 ns |       0.1036 ns |         9.4083 ns |        108.290 |        15.99 | 0.0032 |      40 B |          NA |
-| AnySmall                     | Job-HXWWDC         | .NET Framework 4.8 |         8.9172 ns |      0.0583 ns |       0.0517 ns |         8.9278 ns |        102.437 |        15.10 | 0.0051 |      32 B |          NA |
-| AnyMedium                    | Job-HXWWDC         | .NET Framework 4.8 |         8.9023 ns |      0.0359 ns |       0.0336 ns |         8.9003 ns |        102.409 |        14.84 | 0.0051 |      32 B |          NA |
-| AnyBig                       | Job-HXWWDC         | .NET Framework 4.8 |         8.7063 ns |      0.0455 ns |       0.0426 ns |         8.6963 ns |        100.147 |        14.48 | 0.0051 |      32 B |          NA |
-| AnyBigList                   | Job-HXWWDC         | .NET Framework 4.8 |        10.8967 ns |      0.0991 ns |       0.0927 ns |        10.9160 ns |        125.333 |        18.08 | 0.0064 |      40 B |          NA |
-| AnyBigHashet                 | Job-HXWWDC         | .NET Framework 4.8 |        11.5538 ns |      0.0913 ns |       0.0854 ns |        11.5405 ns |        132.825 |        18.59 | 0.0064 |      40 B |          NA |
-| AnyBigEnum                   | Job-HXWWDC         | .NET Framework 4.8 |         9.6281 ns |      0.0294 ns |       0.0261 ns |         9.6330 ns |        110.624 |        16.43 | 0.0064 |      40 B |          NA |
-| LenghtSmall                  | Job-HXWWDC         | .NET Framework 4.8 |         0.0869 ns |      0.0110 ns |       0.0103 ns |         0.0877 ns |          0.996 |         0.17 |      - |         - |          NA |
-| LenghtMedium                 | Job-HXWWDC         | .NET Framework 4.8 |         0.0802 ns |      0.0130 ns |       0.0122 ns |         0.0814 ns |          0.922 |         0.19 |      - |         - |          NA |
-| LenghtBig                    | Job-HXWWDC         | .NET Framework 4.8 |         0.0886 ns |      0.0133 ns |       0.0125 ns |         0.0911 ns |          1.000 |         0.00 |      - |         - |          NA |
-| LenghtBigList                | Job-HXWWDC         | .NET Framework 4.8 |         0.0913 ns |      0.0096 ns |       0.0090 ns |         0.0921 ns |          1.051 |         0.19 |      - |         - |          NA |
-| LenghtBigHashet              | Job-HXWWDC         | .NET Framework 4.8 |         0.0854 ns |      0.0137 ns |       0.0128 ns |         0.0882 ns |          0.977 |         0.17 |      - |         - |          NA |
-| LenghtBigEnum                | Job-HXWWDC         | .NET Framework 4.8 | 1,953,247.9427 ns | 20,814.0771 ns |  19,469.5006 ns | 1,957,055.8594 ns | 22,449,133.005 | 3,105,356.20 |      - |      48 B |          NA |
-| TakeCountSmall               | Job-HXWWDC         | .NET Framework 4.8 |        37.5990 ns |      0.2007 ns |       0.1878 ns |        37.5965 ns |        432.480 |        62.44 | 0.0153 |      96 B |          NA |
-| TakeCountMedium              | Job-HXWWDC         | .NET Framework 4.8 |        37.4735 ns |      0.1562 ns |       0.1385 ns |        37.4845 ns |        430.604 |        64.31 | 0.0153 |      96 B |          NA |
-| TakeCountBig                 | Job-HXWWDC         | .NET Framework 4.8 |        36.9597 ns |      0.0989 ns |       0.0877 ns |        36.9657 ns |        424.670 |        63.21 | 0.0153 |      96 B |          NA |
-| TakeCountBigList             | Job-HXWWDC         | .NET Framework 4.8 |        40.6202 ns |      0.1217 ns |       0.1079 ns |        40.6351 ns |        466.783 |        69.91 | 0.0166 |     104 B |          NA |
-| TakeCountBigHashet           | Job-HXWWDC         | .NET Framework 4.8 |        40.8127 ns |      0.2308 ns |       0.2159 ns |        40.8755 ns |        469.425 |        67.55 | 0.0166 |     104 B |          NA |
-| TakeCountBigEnum             | Job-HXWWDC         | .NET Framework 4.8 |        38.1219 ns |      0.2162 ns |       0.1917 ns |        38.1214 ns |        438.071 |        65.63 | 0.0166 |     104 B |          NA |
-| EnumeratorCheckSmall         | Job-HXWWDC         | .NET Framework 4.8 |         8.7670 ns |      0.1002 ns |       0.0783 ns |         8.7591 ns |        101.770 |        14.79 | 0.0051 |      32 B |          NA |
-| EnumeratorCheckMedium        | Job-HXWWDC         | .NET Framework 4.8 |         8.7582 ns |      0.0310 ns |       0.0275 ns |         8.7665 ns |        100.631 |        14.97 | 0.0051 |      32 B |          NA |
-| EnumeratorCheckBig           | Job-HXWWDC         | .NET Framework 4.8 |         8.5148 ns |      0.0384 ns |       0.0359 ns |         8.5116 ns |         97.958 |        14.25 | 0.0051 |      32 B |          NA |
-| EnumeratorCheckBigList       | Job-HXWWDC         | .NET Framework 4.8 |        10.8016 ns |      0.0684 ns |       0.0571 ns |        10.7921 ns |        123.103 |        18.80 | 0.0064 |      40 B |          NA |
-| EnumeratorCheckBigHashset    | Job-HXWWDC         | .NET Framework 4.8 |        10.8766 ns |      0.1809 ns |       0.2707 ns |        10.7795 ns |        126.852 |        19.70 | 0.0064 |      40 B |          NA |
-| EnumeratorCheckBigEnumerable | Job-HXWWDC         | .NET Framework 4.8 |         8.9985 ns |      0.0472 ns |       0.0441 ns |         8.9986 ns |        103.508 |        14.96 | 0.0064 |      40 B |          NA |
-| AnySmall                     | .NET 6.0           | .NET 6.0           |         5.2398 ns |      0.0316 ns |       0.0280 ns |         5.2438 ns |         60.210 |         9.03 |      - |         - |          NA |
-| AnyMedium                    | .NET 6.0           | .NET 6.0           |         5.9405 ns |      0.0377 ns |       0.0353 ns |         5.9402 ns |         68.323 |         9.80 |      - |         - |          NA |
-| AnyBig                       | .NET 6.0           | .NET 6.0           |         5.8831 ns |      0.0301 ns |       0.0267 ns |         5.8836 ns |         67.594 |        10.04 |      - |         - |          NA |
-| AnyBigList                   | .NET 6.0           | .NET 6.0           |         3.4517 ns |      0.0233 ns |       0.0195 ns |         3.4458 ns |         39.345 |         6.04 |      - |         - |          NA |
-| AnyBigHashet                 | .NET 6.0           | .NET 6.0           |         3.4463 ns |      0.0174 ns |       0.0162 ns |         3.4477 ns |         39.641 |         5.71 |      - |         - |          NA |
-| AnyBigEnum                   | .NET 6.0           | .NET 6.0           |        12.9680 ns |      0.0699 ns |       0.0583 ns |        12.9710 ns |        147.827 |        22.83 | 0.0032 |      40 B |          NA |
-| LenghtSmall                  | .NET 6.0           | .NET 6.0           |         0.0027 ns |      0.0042 ns |       0.0040 ns |         0.0006 ns |          0.035 |         0.06 |      - |         - |          NA |
-| LenghtMedium                 | .NET 6.0           | .NET 6.0           |         0.0035 ns |      0.0038 ns |       0.0033 ns |         0.0025 ns |          0.041 |         0.04 |      - |         - |          NA |
-| LenghtBig                    | .NET 6.0           | .NET 6.0           |         0.0054 ns |      0.0054 ns |       0.0050 ns |         0.0044 ns |          0.064 |         0.06 |      - |         - |          NA |
-| LenghtBigList                | .NET 6.0           | .NET 6.0           |         0.0026 ns |      0.0041 ns |       0.0036 ns |         0.0011 ns |          0.030 |         0.04 |      - |         - |          NA |
-| LenghtBigHashet              | .NET 6.0           | .NET 6.0           |         0.0019 ns |      0.0031 ns |       0.0029 ns |         0.0000 ns |          0.023 |         0.04 |      - |         - |          NA |
-| LenghtBigEnum                | .NET 6.0           | .NET 6.0           | 1,876,763.1836 ns | 12,052.7287 ns |  10,684.4300 ns | 1,877,488.6719 ns | 21,573,726.715 | 3,278,017.59 |      - |      41 B |          NA |
-| TakeCountSmall               | .NET 6.0           | .NET 6.0           |        24.1002 ns |      0.4935 ns |       0.6060 ns |        23.8477 ns |        277.947 |        39.09 | 0.0038 |      48 B |          NA |
-| TakeCountMedium              | .NET 6.0           | .NET 6.0           |        23.0748 ns |      0.1251 ns |       0.1045 ns |        23.0913 ns |        263.125 |        41.21 | 0.0038 |      48 B |          NA |
-| TakeCountBig                 | .NET 6.0           | .NET 6.0           |        22.9302 ns |      0.1478 ns |       0.1382 ns |        22.9288 ns |        263.691 |        37.59 | 0.0038 |      48 B |          NA |
-| TakeCountBigList             | .NET 6.0           | .NET 6.0           |        18.0401 ns |      0.0805 ns |       0.0714 ns |        18.0156 ns |        207.305 |        31.02 | 0.0038 |      48 B |          NA |
-| TakeCountBigHashet           | .NET 6.0           | .NET 6.0           |        27.3599 ns |      0.0931 ns |       0.0778 ns |        27.3778 ns |        311.893 |        48.13 | 0.0076 |      96 B |          NA |
-| TakeCountBigEnum             | .NET 6.0           | .NET 6.0           |        23.2108 ns |      0.1167 ns |       0.1092 ns |        23.2047 ns |        266.990 |        38.64 | 0.0076 |      96 B |          NA |
-| EnumeratorCheckSmall         | .NET 6.0           | .NET 6.0           |         6.9561 ns |      0.0445 ns |       0.0394 ns |         6.9500 ns |         79.916 |        11.81 |      - |         - |          NA |
-| EnumeratorCheckMedium        | .NET 6.0           | .NET 6.0           |         6.9923 ns |      0.0569 ns |       0.0532 ns |         6.9754 ns |         80.464 |        11.89 |      - |         - |          NA |
-| EnumeratorCheckBig           | .NET 6.0           | .NET 6.0           |         6.9656 ns |      0.0494 ns |       0.0462 ns |         6.9621 ns |         80.123 |        11.57 |      - |         - |          NA |
-| EnumeratorCheckBigList       | .NET 6.0           | .NET 6.0           |         4.1412 ns |      0.0203 ns |       0.0180 ns |         4.1391 ns |         47.601 |         7.22 |      - |         - |          NA |
-| EnumeratorCheckBigHashset    | .NET 6.0           | .NET 6.0           |         4.2728 ns |      0.0745 ns |       0.0697 ns |         4.2376 ns |         49.132 |         7.11 |      - |         - |          NA |
-| EnumeratorCheckBigEnumerable | .NET 6.0           | .NET 6.0           |        14.2448 ns |      0.1028 ns |       0.0858 ns |        14.2237 ns |        162.303 |        24.45 | 0.0032 |      40 B |          NA |
-| AnySmall                     | .NET 8.0           | .NET 8.0           |         5.1925 ns |      0.0959 ns |       0.0850 ns |         5.1694 ns |         59.639 |         8.73 |      - |         - |          NA |
-| AnyMedium                    | .NET 8.0           | .NET 8.0           |         5.1217 ns |      0.0265 ns |       0.0234 ns |         5.1206 ns |         58.865 |         8.89 |      - |         - |          NA |
-| AnyBig                       | .NET 8.0           | .NET 8.0           |         5.1222 ns |      0.0343 ns |       0.0321 ns |         5.1150 ns |         58.899 |         8.37 |      - |         - |          NA |
-| AnyBigList                   | .NET 8.0           | .NET 8.0           |         2.0881 ns |      0.0103 ns |       0.0097 ns |         2.0854 ns |         24.013 |         3.41 |      - |         - |          NA |
-| AnyBigHashet                 | .NET 8.0           | .NET 8.0           |         2.0957 ns |      0.0163 ns |       0.0152 ns |         2.0912 ns |         24.096 |         3.39 |      - |         - |          NA |
-| AnyBigEnum                   | .NET 8.0           | .NET 8.0           |         9.3060 ns |      0.0794 ns |       0.0704 ns |         9.3341 ns |        106.981 |        16.35 | 0.0032 |      40 B |          NA |
-| LenghtSmall                  | .NET 8.0           | .NET 8.0           |         0.0079 ns |      0.0040 ns |       0.0034 ns |         0.0071 ns |          0.088 |         0.04 |      - |         - |          NA |
-| LenghtMedium                 | .NET 8.0           | .NET 8.0           |         0.0084 ns |      0.0025 ns |       0.0022 ns |         0.0081 ns |          0.094 |         0.02 |      - |         - |          NA |
-| LenghtBig                    | .NET 8.0           | .NET 8.0           |         0.0177 ns |      0.0155 ns |       0.0145 ns |         0.0106 ns |          0.204 |         0.17 |      - |         - |          NA |
-| LenghtBigList                | .NET 8.0           | .NET 8.0           |         0.0095 ns |      0.0103 ns |       0.0096 ns |         0.0075 ns |          0.109 |         0.11 |      - |         - |          NA |
-| LenghtBigHashet              | .NET 8.0           | .NET 8.0           |         0.0043 ns |      0.0048 ns |       0.0045 ns |         0.0033 ns |          0.051 |         0.06 |      - |         - |          NA |
-| LenghtBigEnum                | .NET 8.0           | .NET 8.0           |   583,897.4870 ns |  5,331.3646 ns |   4,986.9617 ns |   583,399.2188 ns |  6,710,928.141 |   927,062.79 |      - |      40 B |          NA |
-| TakeCountSmall               | .NET 8.0           | .NET 8.0           |        15.3626 ns |      0.1663 ns |       0.1555 ns |        15.4056 ns |        176.801 |        26.32 | 0.0038 |      48 B |          NA |
-| TakeCountMedium              | .NET 8.0           | .NET 8.0           |        15.2003 ns |      0.1484 ns |       0.1316 ns |        15.2219 ns |        174.734 |        26.66 | 0.0038 |      48 B |          NA |
-| TakeCountBig                 | .NET 8.0           | .NET 8.0           |        15.3505 ns |      0.1845 ns |       0.1726 ns |        15.3659 ns |        176.511 |        25.09 | 0.0038 |      48 B |          NA |
-| TakeCountBigList             | .NET 8.0           | .NET 8.0           |        11.5651 ns |      0.0883 ns |       0.0783 ns |        11.5721 ns |        132.924 |        20.10 | 0.0038 |      48 B |          NA |
-| TakeCountBigHashet           | .NET 8.0           | .NET 8.0           |        20.1079 ns |      0.2957 ns |       0.2621 ns |        20.0648 ns |        231.013 |        34.43 | 0.0076 |      96 B |          NA |
-| TakeCountBigEnum             | .NET 8.0           | .NET 8.0           |        18.0136 ns |      0.1230 ns |       0.1090 ns |        18.0617 ns |        206.957 |        30.65 | 0.0076 |      96 B |          NA |
-| EnumeratorCheckSmall         | .NET 8.0           | .NET 8.0           |         5.1381 ns |      0.0116 ns |       0.0097 ns |         5.1419 ns |         58.570 |         9.03 |      - |         - |          NA |
-| EnumeratorCheckMedium        | .NET 8.0           | .NET 8.0           |         5.1231 ns |      0.0325 ns |       0.0288 ns |         5.1211 ns |         58.861 |         8.73 |      - |         - |          NA |
-| EnumeratorCheckBig           | .NET 8.0           | .NET 8.0           |         5.1499 ns |      0.0195 ns |       0.0182 ns |         5.1531 ns |         59.236 |         8.54 |      - |         - |          NA |
-| EnumeratorCheckBigList       | .NET 8.0           | .NET 8.0           |         1.7404 ns |      0.0547 ns |       0.0511 ns |         1.7427 ns |         20.000 |         2.83 |      - |         - |          NA |
-| EnumeratorCheckBigHashset    | .NET 8.0           | .NET 8.0           |         1.9157 ns |      0.0459 ns |       0.0430 ns |         1.9023 ns |         22.025 |         3.18 |      - |         - |          NA |
-| EnumeratorCheckBigEnumerable | .NET 8.0           | .NET 8.0           |         9.5219 ns |      0.2065 ns |       0.1612 ns |         9.4902 ns |        110.520 |        15.98 | 0.0032 |      40 B |          NA |
-| AnySmall                     | .NET Framework 4.8 | .NET Framework 4.8 |         8.8293 ns |      0.1976 ns |       0.3355 ns |         8.7041 ns |        102.096 |        14.83 | 0.0051 |      32 B |          NA |
-| AnyMedium                    | .NET Framework 4.8 | .NET Framework 4.8 |         8.4963 ns |      0.1847 ns |       0.2053 ns |         8.4157 ns |         97.913 |        13.33 | 0.0051 |      32 B |          NA |
-| AnyBig                       | .NET Framework 4.8 | .NET Framework 4.8 |         8.2408 ns |      0.0589 ns |       0.0551 ns |         8.2385 ns |         94.792 |        13.68 | 0.0051 |      32 B |          NA |
-| AnyBigList                   | .NET Framework 4.8 | .NET Framework 4.8 |        10.4312 ns |      0.0862 ns |       0.0764 ns |        10.4310 ns |        119.902 |        18.24 | 0.0064 |      40 B |          NA |
-| AnyBigHashet                 | .NET Framework 4.8 | .NET Framework 4.8 |        10.8548 ns |      0.0556 ns |       0.0464 ns |        10.8447 ns |        123.719 |        18.92 | 0.0064 |      40 B |          NA |
-| AnyBigEnum                   | .NET Framework 4.8 | .NET Framework 4.8 |         9.3675 ns |      0.0479 ns |       0.0425 ns |         9.3642 ns |        107.658 |        16.20 | 0.0064 |      40 B |          NA |
-| LenghtSmall                  | .NET Framework 4.8 | .NET Framework 4.8 |         0.0008 ns |      0.0027 ns |       0.0023 ns |         0.0000 ns |          0.010 |         0.03 |      - |         - |          NA |
-| LenghtMedium                 | .NET Framework 4.8 | .NET Framework 4.8 |         0.0060 ns |      0.0058 ns |       0.0054 ns |         0.0064 ns |          0.069 |         0.06 |      - |         - |          NA |
-| LenghtBig                    | .NET Framework 4.8 | .NET Framework 4.8 |         0.0025 ns |      0.0040 ns |       0.0035 ns |         0.0002 ns |          0.029 |         0.04 |      - |         - |          NA |
-| LenghtBigList                | .NET Framework 4.8 | .NET Framework 4.8 |         0.0131 ns |      0.0206 ns |       0.0161 ns |         0.0094 ns |          0.153 |         0.18 |      - |         - |          NA |
-| LenghtBigHashet              | .NET Framework 4.8 | .NET Framework 4.8 |         0.0117 ns |      0.0131 ns |       0.0207 ns |         0.0000 ns |          0.170 |         0.30 |      - |         - |          NA |
-| LenghtBigEnum                | .NET Framework 4.8 | .NET Framework 4.8 | 2,082,435.3046 ns | 41,349.8025 ns | 107,473.6346 ns | 2,110,085.1562 ns | 23,815,359.344 | 4,121,613.89 |      - |      64 B |          NA |
-| TakeCountSmall               | .NET Framework 4.8 | .NET Framework 4.8 |        46.9507 ns |      2.4063 ns |       7.0949 ns |        49.4569 ns |        597.780 |       105.89 | 0.0153 |      96 B |          NA |
-| TakeCountMedium              | .NET Framework 4.8 | .NET Framework 4.8 |        41.8135 ns |      2.2990 ns |       6.7788 ns |        37.6470 ns |        518.330 |        81.82 | 0.0153 |      96 B |          NA |
-| TakeCountBig                 | .NET Framework 4.8 | .NET Framework 4.8 |        35.4960 ns |      0.6845 ns |       0.6068 ns |        35.3374 ns |        407.777 |        60.11 | 0.0153 |      96 B |          NA |
-| TakeCountBigList             | .NET Framework 4.8 | .NET Framework 4.8 |        38.4373 ns |      0.5809 ns |       0.5434 ns |        38.1308 ns |        441.967 |        62.86 | 0.0166 |     104 B |          NA |
-| TakeCountBigHashet           | .NET Framework 4.8 | .NET Framework 4.8 |        38.2684 ns |      0.2804 ns |       0.2486 ns |        38.1903 ns |        439.749 |        65.73 | 0.0166 |     104 B |          NA |
-| TakeCountBigEnum             | .NET Framework 4.8 | .NET Framework 4.8 |        36.3923 ns |      0.1373 ns |       0.1217 ns |        36.4024 ns |        418.172 |        62.42 | 0.0166 |     104 B |          NA |
-| EnumeratorCheckSmall         | .NET Framework 4.8 | .NET Framework 4.8 |         8.1673 ns |      0.0523 ns |       0.0464 ns |         8.1634 ns |         93.856 |        14.09 | 0.0051 |      32 B |          NA |
-| EnumeratorCheckMedium        | .NET Framework 4.8 | .NET Framework 4.8 |         8.1260 ns |      0.0368 ns |       0.0308 ns |         8.1328 ns |         92.623 |        14.20 | 0.0051 |      32 B |          NA |
-| EnumeratorCheckBig           | .NET Framework 4.8 | .NET Framework 4.8 |         7.9763 ns |      0.0262 ns |       0.0245 ns |         7.9818 ns |         91.736 |        13.14 | 0.0051 |      32 B |          NA |
-| EnumeratorCheckBigList       | .NET Framework 4.8 | .NET Framework 4.8 |        10.4208 ns |      0.2269 ns |       0.3852 ns |        10.2657 ns |        119.707 |        18.83 | 0.0064 |      40 B |          NA |
-| EnumeratorCheckBigHashset    | .NET Framework 4.8 | .NET Framework 4.8 |        10.8562 ns |      0.1353 ns |       0.1200 ns |        10.8268 ns |        124.759 |        18.83 | 0.0064 |      40 B |          NA |
-| EnumeratorCheckBigEnumerable | .NET Framework 4.8 | .NET Framework 4.8 |         9.3627 ns |      0.0682 ns |       0.0605 ns |         9.3436 ns |        107.560 |        15.90 | 0.0064 |      40 B |          NA |
 </code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Job</th>
+<th>Runtime</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Error</th>
+<th style="text-align: right;">StdDev</th>
+<th style="text-align: right;">Median</th>
+<th style="text-align: right;">Ratio</th>
+<th style="text-align: right;">RatioSD</th>
+<th style="text-align: right;">Gen0</th>
+<th style="text-align: right;">Allocated</th>
+<th style="text-align: right;">Alloc Ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AnySmall</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">5.5193 ns</td>
+<td style="text-align: right;">0.1327 ns</td>
+<td style="text-align: right;">0.2180 ns</td>
+<td style="text-align: right;">5.4247 ns</td>
+<td style="text-align: right;">65.202</td>
+<td style="text-align: right;">9.06</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyMedium</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">5.1544 ns</td>
+<td style="text-align: right;">0.0087 ns</td>
+<td style="text-align: right;">0.0073 ns</td>
+<td style="text-align: right;">5.1556 ns</td>
+<td style="text-align: right;">58.754</td>
+<td style="text-align: right;">9.03</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBig</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">5.6388 ns</td>
+<td style="text-align: right;">0.0147 ns</td>
+<td style="text-align: right;">0.0137 ns</td>
+<td style="text-align: right;">5.6380 ns</td>
+<td style="text-align: right;">64.855</td>
+<td style="text-align: right;">9.31</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigList</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">3.4669 ns</td>
+<td style="text-align: right;">0.0104 ns</td>
+<td style="text-align: right;">0.0087 ns</td>
+<td style="text-align: right;">3.4654 ns</td>
+<td style="text-align: right;">39.521</td>
+<td style="text-align: right;">6.10</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigHashet</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">3.4412 ns</td>
+<td style="text-align: right;">0.0104 ns</td>
+<td style="text-align: right;">0.0097 ns</td>
+<td style="text-align: right;">3.4423 ns</td>
+<td style="text-align: right;">39.574</td>
+<td style="text-align: right;">5.64</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigEnum</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">11.7390 ns</td>
+<td style="text-align: right;">0.0935 ns</td>
+<td style="text-align: right;">0.0829 ns</td>
+<td style="text-align: right;">11.7125 ns</td>
+<td style="text-align: right;">134.898</td>
+<td style="text-align: right;">20.21</td>
+<td style="text-align: right;">0.0032</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtSmall</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtMedium</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">0.0005 ns</td>
+<td style="text-align: right;">0.0020 ns</td>
+<td style="text-align: right;">0.0016 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBig</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">0.0003 ns</td>
+<td style="text-align: right;">0.0008 ns</td>
+<td style="text-align: right;">0.0008 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.004</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigList</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">0.0002 ns</td>
+<td style="text-align: right;">0.0007 ns</td>
+<td style="text-align: right;">0.0006 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.002</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigHashet</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">0.0024 ns</td>
+<td style="text-align: right;">0.0024 ns</td>
+<td style="text-align: right;">0.0020 ns</td>
+<td style="text-align: right;">0.0023 ns</td>
+<td style="text-align: right;">0.027</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigEnum</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">2,226,575.1302 ns</td>
+<td style="text-align: right;">17,281.0371 ns</td>
+<td style="text-align: right;">16,164.6929 ns</td>
+<td style="text-align: right;">2,232,578.9062 ns</td>
+<td style="text-align: right;">25,624,584.160</td>
+<td style="text-align: right;">3,797,599.39</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">42 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountSmall</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">22.8527 ns</td>
+<td style="text-align: right;">0.2173 ns</td>
+<td style="text-align: right;">0.1815 ns</td>
+<td style="text-align: right;">22.8633 ns</td>
+<td style="text-align: right;">260.402</td>
+<td style="text-align: right;">39.29</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountMedium</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">24.4885 ns</td>
+<td style="text-align: right;">0.2504 ns</td>
+<td style="text-align: right;">0.2342 ns</td>
+<td style="text-align: right;">24.5083 ns</td>
+<td style="text-align: right;">281.775</td>
+<td style="text-align: right;">41.39</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBig</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">22.7268 ns</td>
+<td style="text-align: right;">0.2396 ns</td>
+<td style="text-align: right;">0.2241 ns</td>
+<td style="text-align: right;">22.8053 ns</td>
+<td style="text-align: right;">261.403</td>
+<td style="text-align: right;">37.73</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigList</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">20.2234 ns</td>
+<td style="text-align: right;">0.1097 ns</td>
+<td style="text-align: right;">0.0973 ns</td>
+<td style="text-align: right;">20.2509 ns</td>
+<td style="text-align: right;">232.443</td>
+<td style="text-align: right;">35.16</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigHashet</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">30.9384 ns</td>
+<td style="text-align: right;">0.1732 ns</td>
+<td style="text-align: right;">0.1620 ns</td>
+<td style="text-align: right;">31.0010 ns</td>
+<td style="text-align: right;">355.901</td>
+<td style="text-align: right;">51.69</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">96 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigEnum</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">26.0982 ns</td>
+<td style="text-align: right;">0.3957 ns</td>
+<td style="text-align: right;">0.3702 ns</td>
+<td style="text-align: right;">26.0341 ns</td>
+<td style="text-align: right;">300.198</td>
+<td style="text-align: right;">43.41</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">96 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckSmall</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">5.9595 ns</td>
+<td style="text-align: right;">0.0359 ns</td>
+<td style="text-align: right;">0.0336 ns</td>
+<td style="text-align: right;">5.9563 ns</td>
+<td style="text-align: right;">68.551</td>
+<td style="text-align: right;">9.91</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckMedium</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">5.9652 ns</td>
+<td style="text-align: right;">0.0330 ns</td>
+<td style="text-align: right;">0.0309 ns</td>
+<td style="text-align: right;">5.9524 ns</td>
+<td style="text-align: right;">68.601</td>
+<td style="text-align: right;">9.78</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBig</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">6.4964 ns</td>
+<td style="text-align: right;">0.0572 ns</td>
+<td style="text-align: right;">0.0535 ns</td>
+<td style="text-align: right;">6.4886 ns</td>
+<td style="text-align: right;">74.742</td>
+<td style="text-align: right;">10.93</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigList</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">4.0621 ns</td>
+<td style="text-align: right;">0.0266 ns</td>
+<td style="text-align: right;">0.0248 ns</td>
+<td style="text-align: right;">4.0571 ns</td>
+<td style="text-align: right;">46.736</td>
+<td style="text-align: right;">6.86</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigHashset</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">4.0694 ns</td>
+<td style="text-align: right;">0.0236 ns</td>
+<td style="text-align: right;">0.0209 ns</td>
+<td style="text-align: right;">4.0658 ns</td>
+<td style="text-align: right;">46.750</td>
+<td style="text-align: right;">6.90</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigEnumerable</td>
+<td>Job-FQEJOX</td>
+<td>.NET 7.0</td>
+<td style="text-align: right;">14.7422 ns</td>
+<td style="text-align: right;">0.0895 ns</td>
+<td style="text-align: right;">0.0837 ns</td>
+<td style="text-align: right;">14.7575 ns</td>
+<td style="text-align: right;">169.591</td>
+<td style="text-align: right;">24.59</td>
+<td style="text-align: right;">0.0032</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnySmall</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">5.4162 ns</td>
+<td style="text-align: right;">0.1301 ns</td>
+<td style="text-align: right;">0.1278 ns</td>
+<td style="text-align: right;">5.3537 ns</td>
+<td style="text-align: right;">62.244</td>
+<td style="text-align: right;">8.54</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyMedium</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">5.2541 ns</td>
+<td style="text-align: right;">0.0240 ns</td>
+<td style="text-align: right;">0.0213 ns</td>
+<td style="text-align: right;">5.2591 ns</td>
+<td style="text-align: right;">60.364</td>
+<td style="text-align: right;">8.95</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBig</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">5.2532 ns</td>
+<td style="text-align: right;">0.0234 ns</td>
+<td style="text-align: right;">0.0208 ns</td>
+<td style="text-align: right;">5.2545 ns</td>
+<td style="text-align: right;">60.346</td>
+<td style="text-align: right;">8.89</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigList</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">2.1404 ns</td>
+<td style="text-align: right;">0.0248 ns</td>
+<td style="text-align: right;">0.0220 ns</td>
+<td style="text-align: right;">2.1382 ns</td>
+<td style="text-align: right;">24.620</td>
+<td style="text-align: right;">3.87</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigHashet</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">2.1367 ns</td>
+<td style="text-align: right;">0.0214 ns</td>
+<td style="text-align: right;">0.0200 ns</td>
+<td style="text-align: right;">2.1318 ns</td>
+<td style="text-align: right;">24.567</td>
+<td style="text-align: right;">3.47</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigEnum</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">10.3076 ns</td>
+<td style="text-align: right;">0.0988 ns</td>
+<td style="text-align: right;">0.0924 ns</td>
+<td style="text-align: right;">10.3198 ns</td>
+<td style="text-align: right;">118.566</td>
+<td style="text-align: right;">17.16</td>
+<td style="text-align: right;">0.0032</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtSmall</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">0.0001 ns</td>
+<td style="text-align: right;">0.0002 ns</td>
+<td style="text-align: right;">0.0002 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtMedium</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">0.0001 ns</td>
+<td style="text-align: right;">0.0004 ns</td>
+<td style="text-align: right;">0.0004 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBig</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">0.0009 ns</td>
+<td style="text-align: right;">0.0009 ns</td>
+<td style="text-align: right;">0.0009 ns</td>
+<td style="text-align: right;">0.0008 ns</td>
+<td style="text-align: right;">0.011</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigList</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">0.0003 ns</td>
+<td style="text-align: right;">0.0005 ns</td>
+<td style="text-align: right;">0.0005 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.003</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigHashet</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.0001 ns</td>
+<td style="text-align: right;">0.0001 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigEnum</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">661,041.0095 ns</td>
+<td style="text-align: right;">12,414.3956 ns</td>
+<td style="text-align: right;">12,192.5964 ns</td>
+<td style="text-align: right;">661,278.4180 ns</td>
+<td style="text-align: right;">7,595,090.687</td>
+<td style="text-align: right;">1,066,456.21</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountSmall</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">16.5871 ns</td>
+<td style="text-align: right;">0.3065 ns</td>
+<td style="text-align: right;">0.2560 ns</td>
+<td style="text-align: right;">16.5038 ns</td>
+<td style="text-align: right;">189.334</td>
+<td style="text-align: right;">31.13</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountMedium</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">16.4673 ns</td>
+<td style="text-align: right;">0.1167 ns</td>
+<td style="text-align: right;">0.1091 ns</td>
+<td style="text-align: right;">16.4832 ns</td>
+<td style="text-align: right;">189.470</td>
+<td style="text-align: right;">27.73</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBig</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">17.4318 ns</td>
+<td style="text-align: right;">0.1367 ns</td>
+<td style="text-align: right;">0.1279 ns</td>
+<td style="text-align: right;">17.4259 ns</td>
+<td style="text-align: right;">200.547</td>
+<td style="text-align: right;">29.32</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigList</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">12.6229 ns</td>
+<td style="text-align: right;">0.1297 ns</td>
+<td style="text-align: right;">0.1083 ns</td>
+<td style="text-align: right;">12.5937 ns</td>
+<td style="text-align: right;">143.948</td>
+<td style="text-align: right;">22.60</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigHashet</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">22.1075 ns</td>
+<td style="text-align: right;">0.2167 ns</td>
+<td style="text-align: right;">0.2027 ns</td>
+<td style="text-align: right;">22.1383 ns</td>
+<td style="text-align: right;">254.360</td>
+<td style="text-align: right;">37.33</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">96 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigEnum</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">19.4930 ns</td>
+<td style="text-align: right;">0.2367 ns</td>
+<td style="text-align: right;">0.1976 ns</td>
+<td style="text-align: right;">19.4981 ns</td>
+<td style="text-align: right;">222.361</td>
+<td style="text-align: right;">35.57</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">96 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckSmall</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">5.2012 ns</td>
+<td style="text-align: right;">0.0294 ns</td>
+<td style="text-align: right;">0.0275 ns</td>
+<td style="text-align: right;">5.1994 ns</td>
+<td style="text-align: right;">59.833</td>
+<td style="text-align: right;">8.68</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckMedium</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">5.2079 ns</td>
+<td style="text-align: right;">0.0542 ns</td>
+<td style="text-align: right;">0.0507 ns</td>
+<td style="text-align: right;">5.2125 ns</td>
+<td style="text-align: right;">59.908</td>
+<td style="text-align: right;">8.66</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBig</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">5.4552 ns</td>
+<td style="text-align: right;">0.1309 ns</td>
+<td style="text-align: right;">0.1703 ns</td>
+<td style="text-align: right;">5.4111 ns</td>
+<td style="text-align: right;">62.725</td>
+<td style="text-align: right;">9.20</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigList</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">1.6329 ns</td>
+<td style="text-align: right;">0.0244 ns</td>
+<td style="text-align: right;">0.0204 ns</td>
+<td style="text-align: right;">1.6312 ns</td>
+<td style="text-align: right;">18.626</td>
+<td style="text-align: right;">2.96</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigHashset</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">1.9001 ns</td>
+<td style="text-align: right;">0.0196 ns</td>
+<td style="text-align: right;">0.0183 ns</td>
+<td style="text-align: right;">1.9052 ns</td>
+<td style="text-align: right;">21.867</td>
+<td style="text-align: right;">3.22</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigEnumerable</td>
+<td>Job-DISSLE</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">9.4113 ns</td>
+<td style="text-align: right;">0.1107 ns</td>
+<td style="text-align: right;">0.1036 ns</td>
+<td style="text-align: right;">9.4083 ns</td>
+<td style="text-align: right;">108.290</td>
+<td style="text-align: right;">15.99</td>
+<td style="text-align: right;">0.0032</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnySmall</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">8.9172 ns</td>
+<td style="text-align: right;">0.0583 ns</td>
+<td style="text-align: right;">0.0517 ns</td>
+<td style="text-align: right;">8.9278 ns</td>
+<td style="text-align: right;">102.437</td>
+<td style="text-align: right;">15.10</td>
+<td style="text-align: right;">0.0051</td>
+<td style="text-align: right;">32 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyMedium</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">8.9023 ns</td>
+<td style="text-align: right;">0.0359 ns</td>
+<td style="text-align: right;">0.0336 ns</td>
+<td style="text-align: right;">8.9003 ns</td>
+<td style="text-align: right;">102.409</td>
+<td style="text-align: right;">14.84</td>
+<td style="text-align: right;">0.0051</td>
+<td style="text-align: right;">32 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBig</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">8.7063 ns</td>
+<td style="text-align: right;">0.0455 ns</td>
+<td style="text-align: right;">0.0426 ns</td>
+<td style="text-align: right;">8.6963 ns</td>
+<td style="text-align: right;">100.147</td>
+<td style="text-align: right;">14.48</td>
+<td style="text-align: right;">0.0051</td>
+<td style="text-align: right;">32 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigList</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">10.8967 ns</td>
+<td style="text-align: right;">0.0991 ns</td>
+<td style="text-align: right;">0.0927 ns</td>
+<td style="text-align: right;">10.9160 ns</td>
+<td style="text-align: right;">125.333</td>
+<td style="text-align: right;">18.08</td>
+<td style="text-align: right;">0.0064</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigHashet</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">11.5538 ns</td>
+<td style="text-align: right;">0.0913 ns</td>
+<td style="text-align: right;">0.0854 ns</td>
+<td style="text-align: right;">11.5405 ns</td>
+<td style="text-align: right;">132.825</td>
+<td style="text-align: right;">18.59</td>
+<td style="text-align: right;">0.0064</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigEnum</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">9.6281 ns</td>
+<td style="text-align: right;">0.0294 ns</td>
+<td style="text-align: right;">0.0261 ns</td>
+<td style="text-align: right;">9.6330 ns</td>
+<td style="text-align: right;">110.624</td>
+<td style="text-align: right;">16.43</td>
+<td style="text-align: right;">0.0064</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtSmall</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">0.0869 ns</td>
+<td style="text-align: right;">0.0110 ns</td>
+<td style="text-align: right;">0.0103 ns</td>
+<td style="text-align: right;">0.0877 ns</td>
+<td style="text-align: right;">0.996</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtMedium</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">0.0802 ns</td>
+<td style="text-align: right;">0.0130 ns</td>
+<td style="text-align: right;">0.0122 ns</td>
+<td style="text-align: right;">0.0814 ns</td>
+<td style="text-align: right;">0.922</td>
+<td style="text-align: right;">0.19</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBig</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">0.0886 ns</td>
+<td style="text-align: right;">0.0133 ns</td>
+<td style="text-align: right;">0.0125 ns</td>
+<td style="text-align: right;">0.0911 ns</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigList</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">0.0913 ns</td>
+<td style="text-align: right;">0.0096 ns</td>
+<td style="text-align: right;">0.0090 ns</td>
+<td style="text-align: right;">0.0921 ns</td>
+<td style="text-align: right;">1.051</td>
+<td style="text-align: right;">0.19</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigHashet</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">0.0854 ns</td>
+<td style="text-align: right;">0.0137 ns</td>
+<td style="text-align: right;">0.0128 ns</td>
+<td style="text-align: right;">0.0882 ns</td>
+<td style="text-align: right;">0.977</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigEnum</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">1,953,247.9427 ns</td>
+<td style="text-align: right;">20,814.0771 ns</td>
+<td style="text-align: right;">19,469.5006 ns</td>
+<td style="text-align: right;">1,957,055.8594 ns</td>
+<td style="text-align: right;">22,449,133.005</td>
+<td style="text-align: right;">3,105,356.20</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountSmall</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">37.5990 ns</td>
+<td style="text-align: right;">0.2007 ns</td>
+<td style="text-align: right;">0.1878 ns</td>
+<td style="text-align: right;">37.5965 ns</td>
+<td style="text-align: right;">432.480</td>
+<td style="text-align: right;">62.44</td>
+<td style="text-align: right;">0.0153</td>
+<td style="text-align: right;">96 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountMedium</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">37.4735 ns</td>
+<td style="text-align: right;">0.1562 ns</td>
+<td style="text-align: right;">0.1385 ns</td>
+<td style="text-align: right;">37.4845 ns</td>
+<td style="text-align: right;">430.604</td>
+<td style="text-align: right;">64.31</td>
+<td style="text-align: right;">0.0153</td>
+<td style="text-align: right;">96 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBig</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">36.9597 ns</td>
+<td style="text-align: right;">0.0989 ns</td>
+<td style="text-align: right;">0.0877 ns</td>
+<td style="text-align: right;">36.9657 ns</td>
+<td style="text-align: right;">424.670</td>
+<td style="text-align: right;">63.21</td>
+<td style="text-align: right;">0.0153</td>
+<td style="text-align: right;">96 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigList</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">40.6202 ns</td>
+<td style="text-align: right;">0.1217 ns</td>
+<td style="text-align: right;">0.1079 ns</td>
+<td style="text-align: right;">40.6351 ns</td>
+<td style="text-align: right;">466.783</td>
+<td style="text-align: right;">69.91</td>
+<td style="text-align: right;">0.0166</td>
+<td style="text-align: right;">104 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigHashet</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">40.8127 ns</td>
+<td style="text-align: right;">0.2308 ns</td>
+<td style="text-align: right;">0.2159 ns</td>
+<td style="text-align: right;">40.8755 ns</td>
+<td style="text-align: right;">469.425</td>
+<td style="text-align: right;">67.55</td>
+<td style="text-align: right;">0.0166</td>
+<td style="text-align: right;">104 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigEnum</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">38.1219 ns</td>
+<td style="text-align: right;">0.2162 ns</td>
+<td style="text-align: right;">0.1917 ns</td>
+<td style="text-align: right;">38.1214 ns</td>
+<td style="text-align: right;">438.071</td>
+<td style="text-align: right;">65.63</td>
+<td style="text-align: right;">0.0166</td>
+<td style="text-align: right;">104 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckSmall</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">8.7670 ns</td>
+<td style="text-align: right;">0.1002 ns</td>
+<td style="text-align: right;">0.0783 ns</td>
+<td style="text-align: right;">8.7591 ns</td>
+<td style="text-align: right;">101.770</td>
+<td style="text-align: right;">14.79</td>
+<td style="text-align: right;">0.0051</td>
+<td style="text-align: right;">32 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckMedium</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">8.7582 ns</td>
+<td style="text-align: right;">0.0310 ns</td>
+<td style="text-align: right;">0.0275 ns</td>
+<td style="text-align: right;">8.7665 ns</td>
+<td style="text-align: right;">100.631</td>
+<td style="text-align: right;">14.97</td>
+<td style="text-align: right;">0.0051</td>
+<td style="text-align: right;">32 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBig</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">8.5148 ns</td>
+<td style="text-align: right;">0.0384 ns</td>
+<td style="text-align: right;">0.0359 ns</td>
+<td style="text-align: right;">8.5116 ns</td>
+<td style="text-align: right;">97.958</td>
+<td style="text-align: right;">14.25</td>
+<td style="text-align: right;">0.0051</td>
+<td style="text-align: right;">32 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigList</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">10.8016 ns</td>
+<td style="text-align: right;">0.0684 ns</td>
+<td style="text-align: right;">0.0571 ns</td>
+<td style="text-align: right;">10.7921 ns</td>
+<td style="text-align: right;">123.103</td>
+<td style="text-align: right;">18.80</td>
+<td style="text-align: right;">0.0064</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigHashset</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">10.8766 ns</td>
+<td style="text-align: right;">0.1809 ns</td>
+<td style="text-align: right;">0.2707 ns</td>
+<td style="text-align: right;">10.7795 ns</td>
+<td style="text-align: right;">126.852</td>
+<td style="text-align: right;">19.70</td>
+<td style="text-align: right;">0.0064</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigEnumerable</td>
+<td>Job-HXWWDC</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">8.9985 ns</td>
+<td style="text-align: right;">0.0472 ns</td>
+<td style="text-align: right;">0.0441 ns</td>
+<td style="text-align: right;">8.9986 ns</td>
+<td style="text-align: right;">103.508</td>
+<td style="text-align: right;">14.96</td>
+<td style="text-align: right;">0.0064</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnySmall</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">5.2398 ns</td>
+<td style="text-align: right;">0.0316 ns</td>
+<td style="text-align: right;">0.0280 ns</td>
+<td style="text-align: right;">5.2438 ns</td>
+<td style="text-align: right;">60.210</td>
+<td style="text-align: right;">9.03</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyMedium</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">5.9405 ns</td>
+<td style="text-align: right;">0.0377 ns</td>
+<td style="text-align: right;">0.0353 ns</td>
+<td style="text-align: right;">5.9402 ns</td>
+<td style="text-align: right;">68.323</td>
+<td style="text-align: right;">9.80</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBig</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">5.8831 ns</td>
+<td style="text-align: right;">0.0301 ns</td>
+<td style="text-align: right;">0.0267 ns</td>
+<td style="text-align: right;">5.8836 ns</td>
+<td style="text-align: right;">67.594</td>
+<td style="text-align: right;">10.04</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigList</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">3.4517 ns</td>
+<td style="text-align: right;">0.0233 ns</td>
+<td style="text-align: right;">0.0195 ns</td>
+<td style="text-align: right;">3.4458 ns</td>
+<td style="text-align: right;">39.345</td>
+<td style="text-align: right;">6.04</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigHashet</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">3.4463 ns</td>
+<td style="text-align: right;">0.0174 ns</td>
+<td style="text-align: right;">0.0162 ns</td>
+<td style="text-align: right;">3.4477 ns</td>
+<td style="text-align: right;">39.641</td>
+<td style="text-align: right;">5.71</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigEnum</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">12.9680 ns</td>
+<td style="text-align: right;">0.0699 ns</td>
+<td style="text-align: right;">0.0583 ns</td>
+<td style="text-align: right;">12.9710 ns</td>
+<td style="text-align: right;">147.827</td>
+<td style="text-align: right;">22.83</td>
+<td style="text-align: right;">0.0032</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtSmall</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">0.0027 ns</td>
+<td style="text-align: right;">0.0042 ns</td>
+<td style="text-align: right;">0.0040 ns</td>
+<td style="text-align: right;">0.0006 ns</td>
+<td style="text-align: right;">0.035</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtMedium</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">0.0035 ns</td>
+<td style="text-align: right;">0.0038 ns</td>
+<td style="text-align: right;">0.0033 ns</td>
+<td style="text-align: right;">0.0025 ns</td>
+<td style="text-align: right;">0.041</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBig</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">0.0054 ns</td>
+<td style="text-align: right;">0.0054 ns</td>
+<td style="text-align: right;">0.0050 ns</td>
+<td style="text-align: right;">0.0044 ns</td>
+<td style="text-align: right;">0.064</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigList</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">0.0026 ns</td>
+<td style="text-align: right;">0.0041 ns</td>
+<td style="text-align: right;">0.0036 ns</td>
+<td style="text-align: right;">0.0011 ns</td>
+<td style="text-align: right;">0.030</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigHashet</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">0.0019 ns</td>
+<td style="text-align: right;">0.0031 ns</td>
+<td style="text-align: right;">0.0029 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.023</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigEnum</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">1,876,763.1836 ns</td>
+<td style="text-align: right;">12,052.7287 ns</td>
+<td style="text-align: right;">10,684.4300 ns</td>
+<td style="text-align: right;">1,877,488.6719 ns</td>
+<td style="text-align: right;">21,573,726.715</td>
+<td style="text-align: right;">3,278,017.59</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">41 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountSmall</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">24.1002 ns</td>
+<td style="text-align: right;">0.4935 ns</td>
+<td style="text-align: right;">0.6060 ns</td>
+<td style="text-align: right;">23.8477 ns</td>
+<td style="text-align: right;">277.947</td>
+<td style="text-align: right;">39.09</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountMedium</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">23.0748 ns</td>
+<td style="text-align: right;">0.1251 ns</td>
+<td style="text-align: right;">0.1045 ns</td>
+<td style="text-align: right;">23.0913 ns</td>
+<td style="text-align: right;">263.125</td>
+<td style="text-align: right;">41.21</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBig</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">22.9302 ns</td>
+<td style="text-align: right;">0.1478 ns</td>
+<td style="text-align: right;">0.1382 ns</td>
+<td style="text-align: right;">22.9288 ns</td>
+<td style="text-align: right;">263.691</td>
+<td style="text-align: right;">37.59</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigList</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">18.0401 ns</td>
+<td style="text-align: right;">0.0805 ns</td>
+<td style="text-align: right;">0.0714 ns</td>
+<td style="text-align: right;">18.0156 ns</td>
+<td style="text-align: right;">207.305</td>
+<td style="text-align: right;">31.02</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigHashet</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">27.3599 ns</td>
+<td style="text-align: right;">0.0931 ns</td>
+<td style="text-align: right;">0.0778 ns</td>
+<td style="text-align: right;">27.3778 ns</td>
+<td style="text-align: right;">311.893</td>
+<td style="text-align: right;">48.13</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">96 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigEnum</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">23.2108 ns</td>
+<td style="text-align: right;">0.1167 ns</td>
+<td style="text-align: right;">0.1092 ns</td>
+<td style="text-align: right;">23.2047 ns</td>
+<td style="text-align: right;">266.990</td>
+<td style="text-align: right;">38.64</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">96 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckSmall</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">6.9561 ns</td>
+<td style="text-align: right;">0.0445 ns</td>
+<td style="text-align: right;">0.0394 ns</td>
+<td style="text-align: right;">6.9500 ns</td>
+<td style="text-align: right;">79.916</td>
+<td style="text-align: right;">11.81</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckMedium</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">6.9923 ns</td>
+<td style="text-align: right;">0.0569 ns</td>
+<td style="text-align: right;">0.0532 ns</td>
+<td style="text-align: right;">6.9754 ns</td>
+<td style="text-align: right;">80.464</td>
+<td style="text-align: right;">11.89</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBig</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">6.9656 ns</td>
+<td style="text-align: right;">0.0494 ns</td>
+<td style="text-align: right;">0.0462 ns</td>
+<td style="text-align: right;">6.9621 ns</td>
+<td style="text-align: right;">80.123</td>
+<td style="text-align: right;">11.57</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigList</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">4.1412 ns</td>
+<td style="text-align: right;">0.0203 ns</td>
+<td style="text-align: right;">0.0180 ns</td>
+<td style="text-align: right;">4.1391 ns</td>
+<td style="text-align: right;">47.601</td>
+<td style="text-align: right;">7.22</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigHashset</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">4.2728 ns</td>
+<td style="text-align: right;">0.0745 ns</td>
+<td style="text-align: right;">0.0697 ns</td>
+<td style="text-align: right;">4.2376 ns</td>
+<td style="text-align: right;">49.132</td>
+<td style="text-align: right;">7.11</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigEnumerable</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td style="text-align: right;">14.2448 ns</td>
+<td style="text-align: right;">0.1028 ns</td>
+<td style="text-align: right;">0.0858 ns</td>
+<td style="text-align: right;">14.2237 ns</td>
+<td style="text-align: right;">162.303</td>
+<td style="text-align: right;">24.45</td>
+<td style="text-align: right;">0.0032</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnySmall</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">5.1925 ns</td>
+<td style="text-align: right;">0.0959 ns</td>
+<td style="text-align: right;">0.0850 ns</td>
+<td style="text-align: right;">5.1694 ns</td>
+<td style="text-align: right;">59.639</td>
+<td style="text-align: right;">8.73</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyMedium</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">5.1217 ns</td>
+<td style="text-align: right;">0.0265 ns</td>
+<td style="text-align: right;">0.0234 ns</td>
+<td style="text-align: right;">5.1206 ns</td>
+<td style="text-align: right;">58.865</td>
+<td style="text-align: right;">8.89</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBig</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">5.1222 ns</td>
+<td style="text-align: right;">0.0343 ns</td>
+<td style="text-align: right;">0.0321 ns</td>
+<td style="text-align: right;">5.1150 ns</td>
+<td style="text-align: right;">58.899</td>
+<td style="text-align: right;">8.37</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigList</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">2.0881 ns</td>
+<td style="text-align: right;">0.0103 ns</td>
+<td style="text-align: right;">0.0097 ns</td>
+<td style="text-align: right;">2.0854 ns</td>
+<td style="text-align: right;">24.013</td>
+<td style="text-align: right;">3.41</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigHashet</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">2.0957 ns</td>
+<td style="text-align: right;">0.0163 ns</td>
+<td style="text-align: right;">0.0152 ns</td>
+<td style="text-align: right;">2.0912 ns</td>
+<td style="text-align: right;">24.096</td>
+<td style="text-align: right;">3.39</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigEnum</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">9.3060 ns</td>
+<td style="text-align: right;">0.0794 ns</td>
+<td style="text-align: right;">0.0704 ns</td>
+<td style="text-align: right;">9.3341 ns</td>
+<td style="text-align: right;">106.981</td>
+<td style="text-align: right;">16.35</td>
+<td style="text-align: right;">0.0032</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtSmall</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">0.0079 ns</td>
+<td style="text-align: right;">0.0040 ns</td>
+<td style="text-align: right;">0.0034 ns</td>
+<td style="text-align: right;">0.0071 ns</td>
+<td style="text-align: right;">0.088</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtMedium</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">0.0084 ns</td>
+<td style="text-align: right;">0.0025 ns</td>
+<td style="text-align: right;">0.0022 ns</td>
+<td style="text-align: right;">0.0081 ns</td>
+<td style="text-align: right;">0.094</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBig</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">0.0177 ns</td>
+<td style="text-align: right;">0.0155 ns</td>
+<td style="text-align: right;">0.0145 ns</td>
+<td style="text-align: right;">0.0106 ns</td>
+<td style="text-align: right;">0.204</td>
+<td style="text-align: right;">0.17</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigList</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">0.0095 ns</td>
+<td style="text-align: right;">0.0103 ns</td>
+<td style="text-align: right;">0.0096 ns</td>
+<td style="text-align: right;">0.0075 ns</td>
+<td style="text-align: right;">0.109</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigHashet</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">0.0043 ns</td>
+<td style="text-align: right;">0.0048 ns</td>
+<td style="text-align: right;">0.0045 ns</td>
+<td style="text-align: right;">0.0033 ns</td>
+<td style="text-align: right;">0.051</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigEnum</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">583,897.4870 ns</td>
+<td style="text-align: right;">5,331.3646 ns</td>
+<td style="text-align: right;">4,986.9617 ns</td>
+<td style="text-align: right;">583,399.2188 ns</td>
+<td style="text-align: right;">6,710,928.141</td>
+<td style="text-align: right;">927,062.79</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountSmall</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">15.3626 ns</td>
+<td style="text-align: right;">0.1663 ns</td>
+<td style="text-align: right;">0.1555 ns</td>
+<td style="text-align: right;">15.4056 ns</td>
+<td style="text-align: right;">176.801</td>
+<td style="text-align: right;">26.32</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountMedium</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">15.2003 ns</td>
+<td style="text-align: right;">0.1484 ns</td>
+<td style="text-align: right;">0.1316 ns</td>
+<td style="text-align: right;">15.2219 ns</td>
+<td style="text-align: right;">174.734</td>
+<td style="text-align: right;">26.66</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBig</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">15.3505 ns</td>
+<td style="text-align: right;">0.1845 ns</td>
+<td style="text-align: right;">0.1726 ns</td>
+<td style="text-align: right;">15.3659 ns</td>
+<td style="text-align: right;">176.511</td>
+<td style="text-align: right;">25.09</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigList</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">11.5651 ns</td>
+<td style="text-align: right;">0.0883 ns</td>
+<td style="text-align: right;">0.0783 ns</td>
+<td style="text-align: right;">11.5721 ns</td>
+<td style="text-align: right;">132.924</td>
+<td style="text-align: right;">20.10</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">48 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigHashet</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">20.1079 ns</td>
+<td style="text-align: right;">0.2957 ns</td>
+<td style="text-align: right;">0.2621 ns</td>
+<td style="text-align: right;">20.0648 ns</td>
+<td style="text-align: right;">231.013</td>
+<td style="text-align: right;">34.43</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">96 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigEnum</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">18.0136 ns</td>
+<td style="text-align: right;">0.1230 ns</td>
+<td style="text-align: right;">0.1090 ns</td>
+<td style="text-align: right;">18.0617 ns</td>
+<td style="text-align: right;">206.957</td>
+<td style="text-align: right;">30.65</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">96 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckSmall</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">5.1381 ns</td>
+<td style="text-align: right;">0.0116 ns</td>
+<td style="text-align: right;">0.0097 ns</td>
+<td style="text-align: right;">5.1419 ns</td>
+<td style="text-align: right;">58.570</td>
+<td style="text-align: right;">9.03</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckMedium</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">5.1231 ns</td>
+<td style="text-align: right;">0.0325 ns</td>
+<td style="text-align: right;">0.0288 ns</td>
+<td style="text-align: right;">5.1211 ns</td>
+<td style="text-align: right;">58.861</td>
+<td style="text-align: right;">8.73</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBig</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">5.1499 ns</td>
+<td style="text-align: right;">0.0195 ns</td>
+<td style="text-align: right;">0.0182 ns</td>
+<td style="text-align: right;">5.1531 ns</td>
+<td style="text-align: right;">59.236</td>
+<td style="text-align: right;">8.54</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigList</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">1.7404 ns</td>
+<td style="text-align: right;">0.0547 ns</td>
+<td style="text-align: right;">0.0511 ns</td>
+<td style="text-align: right;">1.7427 ns</td>
+<td style="text-align: right;">20.000</td>
+<td style="text-align: right;">2.83</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigHashset</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">1.9157 ns</td>
+<td style="text-align: right;">0.0459 ns</td>
+<td style="text-align: right;">0.0430 ns</td>
+<td style="text-align: right;">1.9023 ns</td>
+<td style="text-align: right;">22.025</td>
+<td style="text-align: right;">3.18</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigEnumerable</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td style="text-align: right;">9.5219 ns</td>
+<td style="text-align: right;">0.2065 ns</td>
+<td style="text-align: right;">0.1612 ns</td>
+<td style="text-align: right;">9.4902 ns</td>
+<td style="text-align: right;">110.520</td>
+<td style="text-align: right;">15.98</td>
+<td style="text-align: right;">0.0032</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnySmall</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">8.8293 ns</td>
+<td style="text-align: right;">0.1976 ns</td>
+<td style="text-align: right;">0.3355 ns</td>
+<td style="text-align: right;">8.7041 ns</td>
+<td style="text-align: right;">102.096</td>
+<td style="text-align: right;">14.83</td>
+<td style="text-align: right;">0.0051</td>
+<td style="text-align: right;">32 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyMedium</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">8.4963 ns</td>
+<td style="text-align: right;">0.1847 ns</td>
+<td style="text-align: right;">0.2053 ns</td>
+<td style="text-align: right;">8.4157 ns</td>
+<td style="text-align: right;">97.913</td>
+<td style="text-align: right;">13.33</td>
+<td style="text-align: right;">0.0051</td>
+<td style="text-align: right;">32 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBig</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">8.2408 ns</td>
+<td style="text-align: right;">0.0589 ns</td>
+<td style="text-align: right;">0.0551 ns</td>
+<td style="text-align: right;">8.2385 ns</td>
+<td style="text-align: right;">94.792</td>
+<td style="text-align: right;">13.68</td>
+<td style="text-align: right;">0.0051</td>
+<td style="text-align: right;">32 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigList</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">10.4312 ns</td>
+<td style="text-align: right;">0.0862 ns</td>
+<td style="text-align: right;">0.0764 ns</td>
+<td style="text-align: right;">10.4310 ns</td>
+<td style="text-align: right;">119.902</td>
+<td style="text-align: right;">18.24</td>
+<td style="text-align: right;">0.0064</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigHashet</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">10.8548 ns</td>
+<td style="text-align: right;">0.0556 ns</td>
+<td style="text-align: right;">0.0464 ns</td>
+<td style="text-align: right;">10.8447 ns</td>
+<td style="text-align: right;">123.719</td>
+<td style="text-align: right;">18.92</td>
+<td style="text-align: right;">0.0064</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>AnyBigEnum</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">9.3675 ns</td>
+<td style="text-align: right;">0.0479 ns</td>
+<td style="text-align: right;">0.0425 ns</td>
+<td style="text-align: right;">9.3642 ns</td>
+<td style="text-align: right;">107.658</td>
+<td style="text-align: right;">16.20</td>
+<td style="text-align: right;">0.0064</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtSmall</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">0.0008 ns</td>
+<td style="text-align: right;">0.0027 ns</td>
+<td style="text-align: right;">0.0023 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.010</td>
+<td style="text-align: right;">0.03</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtMedium</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">0.0060 ns</td>
+<td style="text-align: right;">0.0058 ns</td>
+<td style="text-align: right;">0.0054 ns</td>
+<td style="text-align: right;">0.0064 ns</td>
+<td style="text-align: right;">0.069</td>
+<td style="text-align: right;">0.06</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBig</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">0.0025 ns</td>
+<td style="text-align: right;">0.0040 ns</td>
+<td style="text-align: right;">0.0035 ns</td>
+<td style="text-align: right;">0.0002 ns</td>
+<td style="text-align: right;">0.029</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigList</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">0.0131 ns</td>
+<td style="text-align: right;">0.0206 ns</td>
+<td style="text-align: right;">0.0161 ns</td>
+<td style="text-align: right;">0.0094 ns</td>
+<td style="text-align: right;">0.153</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigHashet</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">0.0117 ns</td>
+<td style="text-align: right;">0.0131 ns</td>
+<td style="text-align: right;">0.0207 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.170</td>
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>LenghtBigEnum</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">2,082,435.3046 ns</td>
+<td style="text-align: right;">41,349.8025 ns</td>
+<td style="text-align: right;">107,473.6346 ns</td>
+<td style="text-align: right;">2,110,085.1562 ns</td>
+<td style="text-align: right;">23,815,359.344</td>
+<td style="text-align: right;">4,121,613.89</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">64 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountSmall</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">46.9507 ns</td>
+<td style="text-align: right;">2.4063 ns</td>
+<td style="text-align: right;">7.0949 ns</td>
+<td style="text-align: right;">49.4569 ns</td>
+<td style="text-align: right;">597.780</td>
+<td style="text-align: right;">105.89</td>
+<td style="text-align: right;">0.0153</td>
+<td style="text-align: right;">96 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountMedium</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">41.8135 ns</td>
+<td style="text-align: right;">2.2990 ns</td>
+<td style="text-align: right;">6.7788 ns</td>
+<td style="text-align: right;">37.6470 ns</td>
+<td style="text-align: right;">518.330</td>
+<td style="text-align: right;">81.82</td>
+<td style="text-align: right;">0.0153</td>
+<td style="text-align: right;">96 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBig</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">35.4960 ns</td>
+<td style="text-align: right;">0.6845 ns</td>
+<td style="text-align: right;">0.6068 ns</td>
+<td style="text-align: right;">35.3374 ns</td>
+<td style="text-align: right;">407.777</td>
+<td style="text-align: right;">60.11</td>
+<td style="text-align: right;">0.0153</td>
+<td style="text-align: right;">96 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigList</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">38.4373 ns</td>
+<td style="text-align: right;">0.5809 ns</td>
+<td style="text-align: right;">0.5434 ns</td>
+<td style="text-align: right;">38.1308 ns</td>
+<td style="text-align: right;">441.967</td>
+<td style="text-align: right;">62.86</td>
+<td style="text-align: right;">0.0166</td>
+<td style="text-align: right;">104 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigHashet</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">38.2684 ns</td>
+<td style="text-align: right;">0.2804 ns</td>
+<td style="text-align: right;">0.2486 ns</td>
+<td style="text-align: right;">38.1903 ns</td>
+<td style="text-align: right;">439.749</td>
+<td style="text-align: right;">65.73</td>
+<td style="text-align: right;">0.0166</td>
+<td style="text-align: right;">104 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>TakeCountBigEnum</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">36.3923 ns</td>
+<td style="text-align: right;">0.1373 ns</td>
+<td style="text-align: right;">0.1217 ns</td>
+<td style="text-align: right;">36.4024 ns</td>
+<td style="text-align: right;">418.172</td>
+<td style="text-align: right;">62.42</td>
+<td style="text-align: right;">0.0166</td>
+<td style="text-align: right;">104 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckSmall</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">8.1673 ns</td>
+<td style="text-align: right;">0.0523 ns</td>
+<td style="text-align: right;">0.0464 ns</td>
+<td style="text-align: right;">8.1634 ns</td>
+<td style="text-align: right;">93.856</td>
+<td style="text-align: right;">14.09</td>
+<td style="text-align: right;">0.0051</td>
+<td style="text-align: right;">32 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckMedium</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">8.1260 ns</td>
+<td style="text-align: right;">0.0368 ns</td>
+<td style="text-align: right;">0.0308 ns</td>
+<td style="text-align: right;">8.1328 ns</td>
+<td style="text-align: right;">92.623</td>
+<td style="text-align: right;">14.20</td>
+<td style="text-align: right;">0.0051</td>
+<td style="text-align: right;">32 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBig</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">7.9763 ns</td>
+<td style="text-align: right;">0.0262 ns</td>
+<td style="text-align: right;">0.0245 ns</td>
+<td style="text-align: right;">7.9818 ns</td>
+<td style="text-align: right;">91.736</td>
+<td style="text-align: right;">13.14</td>
+<td style="text-align: right;">0.0051</td>
+<td style="text-align: right;">32 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigList</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">10.4208 ns</td>
+<td style="text-align: right;">0.2269 ns</td>
+<td style="text-align: right;">0.3852 ns</td>
+<td style="text-align: right;">10.2657 ns</td>
+<td style="text-align: right;">119.707</td>
+<td style="text-align: right;">18.83</td>
+<td style="text-align: right;">0.0064</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigHashset</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">10.8562 ns</td>
+<td style="text-align: right;">0.1353 ns</td>
+<td style="text-align: right;">0.1200 ns</td>
+<td style="text-align: right;">10.8268 ns</td>
+<td style="text-align: right;">124.759</td>
+<td style="text-align: right;">18.83</td>
+<td style="text-align: right;">0.0064</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr>
+<td>EnumeratorCheckBigEnumerable</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td style="text-align: right;">9.3627 ns</td>
+<td style="text-align: right;">0.0682 ns</td>
+<td style="text-align: right;">0.0605 ns</td>
+<td style="text-align: right;">9.3436 ns</td>
+<td style="text-align: right;">107.560</td>
+<td style="text-align: right;">15.90</td>
+<td style="text-align: right;">0.0064</td>
+<td style="text-align: right;">40 B</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
 
 
 
