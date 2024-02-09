@@ -375,10 +375,12 @@
 <h1 id="string-extraction-benchmarkz">String Extraction Benchmarkz</h1>
 <p>The purpose of this tests was to find out the fastest way to extract parts of a string, in this case the keyvalue pairs 
 separated by ';' inside of one string.</p>
-<p>All Tests are performed with the data:
-* <strong>"param:dt=123"</strong>
-* <strong>"param:dt=123; bla=blub; stichdatum=01.01.2019</strong> 
-* <strong>"param:dt=123; bla=blub; stichdatum=01.01.2019; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub"</strong></p>
+<p>All Tests are performed with the data:</p>
+<ul>
+<li>"param:dt=123"</li>
+<li>"param:dt=123; bla=blub; stichdatum=01.01.2019</li>
+<li>"param:dt=123; bla=blub; stichdatum=01.01.2019; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub"</li>
+</ul>
 <h1 id="benchmark-1-spliting-the-string">Benchmark 1: Spliting the string</h1>
 <p>The first test was performedby spliting the string and manually parsing those parts.<br />
 This is the approach seen quite often however is probably the worst one of those as I expect those two <code>.Split()</code> to hurt us badly</p>
