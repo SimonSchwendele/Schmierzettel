@@ -4,9 +4,10 @@ The purpose of this tests was to find out the fastest way to extract parts of a 
 separated by ';' inside of one string.
 
 All Tests are performed with the data:
-* **"param:dt=123"**
-* **"param:dt=123; bla=blub; stichdatum=01.01.2019** 
-* **"param:dt=123; bla=blub; stichdatum=01.01.2019; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub"**
+
+* "param:dt=123"
+* "param:dt=123; bla=blub; stichdatum=01.01.2019
+* "param:dt=123; bla=blub; stichdatum=01.01.2019; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub"
 
 # Benchmark 1: Spliting the string
 The first test was performedby spliting the string and manually parsing those parts.  
