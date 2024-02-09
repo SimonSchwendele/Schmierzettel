@@ -2,6 +2,9 @@ site_name: Schmierzettel
 docs_dir: docs
 nav:
   - "SoftwareentwicklungsProzess mit Git": "README.md"
+  - "Benchmarks": 
+     - "Array Length": "ArrayLength.md"
+     - "String extraction": "StringExtract.md"  
 
 plugins:
   - search
