@@ -825,130 +825,130 @@ Splitting sucks exponentially while becoming slower and slower.</p>
 I still wonder why regex performs worse than rangin on old net48 tho...</p>
 <h1 id="testcode">Testcode</h1>
 <details><summary>Full SourceCode</summary>
-```csharp
-using System.Text.RegularExpressions;
-using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Jobs;
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System.Text.RegularExpressions</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">BenchmarkDotNet.Attributes</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">BenchmarkDotNet.Jobs</span><span class="p">;</span>
 
-namespace Benchmarkz;
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Benchmarkz</span><span class="p">;</span>
 
-[SimpleJob(RuntimeMoniker.Net48)]
-[SimpleJob(RuntimeMoniker.Net60)]
-[SimpleJob(RuntimeMoniker.Net80)]
-[MemoryDiagnoser]
-public class RangeBenchmarks
-{
-private static readonly Regex regexRulez = new(@"(\w+)=(.*?)(?:;|$)",
-RegexOptions.Compiled);
+<span class="na">[SimpleJob(RuntimeMoniker.Net48)]</span>
+<span class="na">[SimpleJob(RuntimeMoniker.Net60)]</span>
+<span class="na">[SimpleJob(RuntimeMoniker.Net80)]</span>
+<span class="na">[MemoryDiagnoser]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">RangeBenchmarks</span>
+<span class="p">{</span>
+<span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Regex</span><span class="w"> </span><span class="n">regexRulez</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="s">@&quot;(\w+)=(.*?)(?:;|$)&quot;</span><span class="p">,</span>
+<span class="n">RegexOptions</span><span class="p">.</span><span class="n">Compiled</span><span class="p">);</span>
 
-    private const string? JustOne = "param:dt=123";
-    private const string? Three = "param:dt=123; bla=blub; stichdatum=01.01.2019";
-    private const string? Twenty = "param:dt=123; bla=blub; stichdatum=01.01.2019; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub";
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string?</span><span class="w"> </span><span class="n">JustOne</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;param:dt=123&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string?</span><span class="w"> </span><span class="n">Three</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;param:dt=123; bla=blub; stichdatum=01.01.2019&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string?</span><span class="w"> </span><span class="n">Twenty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;param:dt=123; bla=blub; stichdatum=01.01.2019; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub; bla=blub&quot;</span><span class="p">;</span>
 
-    [Benchmark]
-    public void SplitExtractSingle() => ExtractParamFieldSplit(JustOne);
+<span class="w">    </span><span class="na">[Benchmark]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SplitExtractSingle</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ExtractParamFieldSplit</span><span class="p">(</span><span class="n">JustOne</span><span class="p">);</span>
 
-    [Benchmark]
-    public void SplitExtractThree() => ExtractParamFieldSplit(Three);
-    [Benchmark]
-    public void SplitExtractTwenty() => ExtractParamFieldSplit(Twenty);
+<span class="w">    </span><span class="na">[Benchmark]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SplitExtractThree</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ExtractParamFieldSplit</span><span class="p">(</span><span class="n">Three</span><span class="p">);</span>
+<span class="w">    </span><span class="na">[Benchmark]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SplitExtractTwenty</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ExtractParamFieldSplit</span><span class="p">(</span><span class="n">Twenty</span><span class="p">);</span>
 
-    [Benchmark]
-    public void SpanExtractSingle() => ExtractParamFieldSpan(JustOne);
+<span class="w">    </span><span class="na">[Benchmark]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SpanExtractSingle</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ExtractParamFieldSpan</span><span class="p">(</span><span class="n">JustOne</span><span class="p">);</span>
 
-    [Benchmark]
-    public void SpanExtractThree() => ExtractParamFieldSpan(Three);
-    [Benchmark]
-    public void SpanExtractTwenty() => ExtractParamFieldSpan(Twenty);
+<span class="w">    </span><span class="na">[Benchmark]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SpanExtractThree</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ExtractParamFieldSpan</span><span class="p">(</span><span class="n">Three</span><span class="p">);</span>
+<span class="w">    </span><span class="na">[Benchmark]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SpanExtractTwenty</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ExtractParamFieldSpan</span><span class="p">(</span><span class="n">Twenty</span><span class="p">);</span>
 
-    [Benchmark]
-    public void RegexExtractSingle() => ExtractParamFieldRegex(JustOne);
+<span class="w">    </span><span class="na">[Benchmark]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RegexExtractSingle</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ExtractParamFieldRegex</span><span class="p">(</span><span class="n">JustOne</span><span class="p">);</span>
 
-    [Benchmark]
-    public void RegexExtractThree() => ExtractParamFieldRegex(Three);
+<span class="w">    </span><span class="na">[Benchmark]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RegexExtractThree</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ExtractParamFieldRegex</span><span class="p">(</span><span class="n">Three</span><span class="p">);</span>
 
-    [Benchmark]
-    public void RegexExtractTwenty() => ExtractParamFieldRegex(Twenty);
+<span class="w">    </span><span class="na">[Benchmark]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">RegexExtractTwenty</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ExtractParamFieldRegex</span><span class="p">(</span><span class="n">Twenty</span><span class="p">);</span>
 
-    public static IEnumerable<ParamField> ExtractParamFieldSplit(string? inputString)
-    {
-        if (inputString is not { Length: > 6 })
-            return Enumerable.Empty<ParamField>();
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">ParamField</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ExtractParamFieldSplit</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">inputString</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">inputString</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Length</span><span class="p">:</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="p">})</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Enumerable</span><span class="p">.</span><span class="n">Empty</span><span class="o">&lt;</span><span class="n">ParamField</span><span class="o">&gt;</span><span class="p">();</span>
 
-        var paramindex = inputString.IndexOf("param:",
-                                             StringComparison.InvariantCultureIgnoreCase);
-        if (paramindex == -1)
-            return Enumerable.Empty<ParamField>();
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">paramindex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inputString</span><span class="p">.</span><span class="n">IndexOf</span><span class="p">(</span><span class="s">&quot;param:&quot;</span><span class="p">,</span>
+<span class="w">                                             </span><span class="n">StringComparison</span><span class="p">.</span><span class="n">InvariantCultureIgnoreCase</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">paramindex</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Enumerable</span><span class="p">.</span><span class="n">Empty</span><span class="o">&lt;</span><span class="n">ParamField</span><span class="o">&gt;</span><span class="p">();</span>
 
-        var splits = inputString[(paramindex + 6)..].Split(';');
-        return splits.Select(x =>
-        {
-            var value = x.Split('=');
-            return new ParamField
-            {
-                Key = value[0].Trim(),
-                Value = value[1].Trim()
-            };
-        });
-    }
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">splits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inputString</span><span class="p">[(</span><span class="n">paramindex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">6</span><span class="p">)..].</span><span class="n">Split</span><span class="p">(</span><span class="sc">&#39;;&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">splits</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="sc">&#39;=&#39;</span><span class="p">);</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ParamField</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Trim</span><span class="p">(),</span>
+<span class="w">                </span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">Trim</span><span class="p">()</span>
+<span class="w">            </span><span class="p">};</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
 
-    public static IEnumerable<ParamField> ExtractParamFieldSpan(string? inputString)
-    {
-        if (inputString is not { Length: > 6 })
-            return Enumerable.Empty<ParamField>();
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">ParamField</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ExtractParamFieldSpan</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">inputString</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">inputString</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Length</span><span class="p">:</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="p">})</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Enumerable</span><span class="p">.</span><span class="n">Empty</span><span class="o">&lt;</span><span class="n">ParamField</span><span class="o">&gt;</span><span class="p">();</span>
 
-        var identifierIndex = inputString.IndexOf("param:",
-                                                  StringComparison.InvariantCultureIgnoreCase);
-        if (identifierIndex == -1)
-            return Enumerable.Empty<ParamField>();
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">identifierIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inputString</span><span class="p">.</span><span class="n">IndexOf</span><span class="p">(</span><span class="s">&quot;param:&quot;</span><span class="p">,</span>
+<span class="w">                                                  </span><span class="n">StringComparison</span><span class="p">.</span><span class="n">InvariantCultureIgnoreCase</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">identifierIndex</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Enumerable</span><span class="p">.</span><span class="n">Empty</span><span class="o">&lt;</span><span class="n">ParamField</span><span class="o">&gt;</span><span class="p">();</span>
 
-        var inputAsSpan = inputString.AsSpan();
-        var startIndex = identifierIndex + 6;
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">inputAsSpan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inputString</span><span class="p">.</span><span class="n">AsSpan</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">startIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">identifierIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">6</span><span class="p">;</span>
 
-        var endOfFirstPair = inputAsSpan.IndexOf(';');
-        var pair = endOfFirstPair > 1
-            ? inputAsSpan.Slice(startIndex,
-                                endOfFirstPair - startIndex)
-            : inputAsSpan[startIndex..];
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">endOfFirstPair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inputAsSpan</span><span class="p">.</span><span class="n">IndexOf</span><span class="p">(</span><span class="sc">&#39;;&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">endOfFirstPair</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">1</span>
+<span class="w">            </span><span class="o">?</span><span class="w"> </span><span class="n">inputAsSpan</span><span class="p">.</span><span class="n">Slice</span><span class="p">(</span><span class="n">startIndex</span><span class="p">,</span>
+<span class="w">                                </span><span class="n">endOfFirstPair</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">startIndex</span><span class="p">)</span>
+<span class="w">            </span><span class="p">:</span><span class="w"> </span><span class="n">inputAsSpan</span><span class="p">[</span><span class="n">startIndex</span><span class="p">..];</span>
 
-        var separatorIndex = pair.IndexOf('=');
-        var results = new List<ParamField>();
-        while (separatorIndex != -1)
-        {
-            results.Add(new ParamField
-            {
-                Key = pair[..separatorIndex].Trim().ToString(),
-                Value = pair[(separatorIndex + 1)..].Trim().ToString()
-            });
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">separatorIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="p">.</span><span class="n">IndexOf</span><span class="p">(</span><span class="sc">&#39;=&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ParamField</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">separatorIndex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">results</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ParamField</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="p">[..</span><span class="n">separatorIndex</span><span class="p">].</span><span class="n">Trim</span><span class="p">().</span><span class="n">ToString</span><span class="p">(),</span>
+<span class="w">                </span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="p">[(</span><span class="n">separatorIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)..].</span><span class="n">Trim</span><span class="p">().</span><span class="n">ToString</span><span class="p">()</span>
+<span class="w">            </span><span class="p">});</span>
 
-            pair = pair[(separatorIndex + 1)..];
-            separatorIndex = pair.IndexOf('=');
-        }
+<span class="w">            </span><span class="n">pair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="p">[(</span><span class="n">separatorIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">)..];</span>
+<span class="w">            </span><span class="n">separatorIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="p">.</span><span class="n">IndexOf</span><span class="p">(</span><span class="sc">&#39;=&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
 
-        return results;
-    }
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">results</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    public static IEnumerable<ParamField> ExtractParamFieldRegex(string? inputString)
-    {
-        if (inputString is not { Length: > 6 })
-            return Enumerable.Empty<ParamField>();
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">ParamField</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ExtractParamFieldRegex</span><span class="p">(</span><span class="kt">string?</span><span class="w"> </span><span class="n">inputString</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">inputString</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Length</span><span class="p">:</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="p">})</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">Enumerable</span><span class="p">.</span><span class="n">Empty</span><span class="o">&lt;</span><span class="n">ParamField</span><span class="o">&gt;</span><span class="p">();</span>
 
-        var matches = regexRulez.Matches(inputString);
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regexRulez</span><span class="p">.</span><span class="n">Matches</span><span class="p">(</span><span class="n">inputString</span><span class="p">);</span>
 
-        return matches.Cast<Match>()
-                      .Select(match => new ParamField
-                      {
-                          Key = match.Groups[1].Value.Trim(),
-                          Value = match.Groups[2].Value.Trim()
-                      });
-    }
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">matches</span><span class="p">.</span><span class="n">Cast</span><span class="o">&lt;</span><span class="n">Match</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="w">                      </span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">match</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ParamField</span>
+<span class="w">                      </span><span class="p">{</span>
+<span class="w">                          </span><span class="n">Key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">match</span><span class="p">.</span><span class="n">Groups</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">Value</span><span class="p">.</span><span class="n">Trim</span><span class="p">(),</span>
+<span class="w">                          </span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">match</span><span class="p">.</span><span class="n">Groups</span><span class="p">[</span><span class="m">2</span><span class="p">].</span><span class="n">Value</span><span class="p">.</span><span class="n">Trim</span><span class="p">()</span>
+<span class="w">                      </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
 
-    public class ParamField
-    {
-        public string Key { get; set; }
-        public string Value { get; set; }
-    }
-}
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ParamField</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Key</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
 </details>
 
