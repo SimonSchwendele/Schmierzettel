@@ -5,6 +5,7 @@ nav:
   - "Benchmarks": 
      - "Array Length": "ArrayLength.md"
      - "String extraction": "StringExtract.md"  
+     - "List Splits": "ListSplits.md"  
 
 plugins:
   - search
