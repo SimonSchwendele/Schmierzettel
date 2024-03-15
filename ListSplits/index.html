@@ -1,0 +1,1672 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../StringExtract/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.5">
+    
+    
+      
+        <title>List Splits - Schmierzettel</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6a10b989.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/cmistyle.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#listsplit-benchmarkz" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Schmierzettel" class="md-header__button md-logo" aria-label="Schmierzettel" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Schmierzettel
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              List Splits
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  SoftwareentwicklungsProzess mit Git
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../ArrayLength/" class="md-tabs__link">
+          
+  
+  Benchmarks
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Schmierzettel" class="md-nav__button md-logo" aria-label="Schmierzettel" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Schmierzettel
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SoftwareentwicklungsProzess mit Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Benchmarks
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Benchmarks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ArrayLength/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Array Length
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../StringExtract/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    String extraction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    List Splits
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="listsplit-benchmarkz">ListSplit Benchmarkz</h1>
+<h1 id="benchmark-1-chunkofsizet">Benchmark 1: ChunkOfSizeT</h1>
+<p>The first implementation doesnt preallocate a List and thus yields an overhead as the array has to resized way often.</p>
+<h2 id="code">Code</h2>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">ToChunksOfMaxSizeN</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">toChunk</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxSize</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">maxSize</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">InvalidEnumArgumentException</span><span class="p">(</span><span class="s">$&quot;{nameof(maxSize)} must be greater than 0&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">chunk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">toChunk</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">chunk</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">o</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">chunk</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">maxSize</span><span class="p">)</span>
+<span class="w">                </span><span class="k">continue</span><span class="p">;</span>
+
+<span class="w">            </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">chunk</span><span class="p">;</span>
+<span class="w">            </span><span class="n">chunk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">chunk</span><span class="p">.</span><span class="n">Any</span><span class="p">())</span>
+<span class="w">            </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">chunk</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+<h1 id="benchmark-2-listsplit">Benchmark 2: List.Split()</h1>
+<p>The second implementation is a tad uglier but yields some micro optimizations by buffering the checks and resizing the array that is to be returned on demand</p>
+<h2 id="code_1">Code</h2>
+<div class="highlight"><pre><span></span><code><span class="k">internal</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">TSource</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Split</span><span class="o">&lt;</span><span class="n">TSource</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">TSource</span><span class="o">&gt;</span><span class="w"> </span><span class="n">source</span><span class="p">,</span>
+<span class="w">                                                          </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">enumerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">source</span><span class="p">.</span><span class="n">GetEnumerator</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">enumerator</span><span class="p">.</span><span class="n">MoveNext</span><span class="p">())</span>
+<span class="w">            </span><span class="k">yield</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">arrayBufferSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">uint</span><span class="w"> </span><span class="n">chunkIndex</span><span class="p">;</span>
+<span class="w">        </span><span class="k">do</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TSource</span><span class="p">[</span><span class="n">arrayBufferSize</span><span class="p">];</span>
+<span class="w">            </span><span class="n">array</span><span class="p">[</span><span class="m">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">enumerator</span><span class="p">.</span><span class="n">Current</span><span class="p">;</span>
+<span class="w">            </span><span class="n">chunkIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">chunkIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">enumerator</span><span class="p">.</span><span class="n">MoveNext</span><span class="p">())</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// Manual resizings still more slim than lists dynamic allocation</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">chunkIndex</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span>
+<span class="w">                    </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">arrayBufferSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+<span class="w">                        </span><span class="n">Array</span><span class="p">.</span><span class="n">Resize</span><span class="p">(</span><span class="k">ref</span><span class="w"> </span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="n">arrayBufferSize</span><span class="p">);</span>
+<span class="w">                    </span><span class="p">}</span>
+
+<span class="w">                    </span><span class="n">PushToChunk</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// ReSharper disable once InlineTemporaryVariable -- Suppresses bounding checks ( not required as resized above )</span>
+<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">;</span>
+<span class="w">                </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">chunkIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">cache</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">enumerator</span><span class="p">.</span><span class="n">MoveNext</span><span class="p">())</span>
+<span class="w">                    </span><span class="n">PushToChunk</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="c1">// Reduces the ( possible ) fragmentation of the last chunky</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">chunkIndex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span>
+<span class="w">                </span><span class="n">Array</span><span class="p">.</span><span class="n">Resize</span><span class="p">(</span><span class="k">ref</span><span class="w"> </span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">chunkIndex</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">array</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">chunkIndex</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">enumerator</span><span class="p">.</span><span class="n">MoveNext</span><span class="p">());</span>
+<span class="w">        </span><span class="k">void</span><span class="w"> </span><span class="nf">PushToChunk</span><span class="p">(</span><span class="n">TSource</span><span class="p">[]</span><span class="w"> </span><span class="n">array</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">array</span><span class="p">[</span><span class="n">chunkIndex</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">enumerator</span><span class="p">.</span><span class="n">Current</span><span class="p">;</span>
+<span class="w">            </span><span class="n">chunkIndex</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+<h1 id="results">Results</h1>
+<div class="highlight"><pre><span></span><code>// * Summary *                                                                                                                                                                                                                                                                                                                                                                          BenchmarkDotNet v0.13.12, Windows 10 (10.0.19045.4046/22H2/2022Update)                                                                                                                      12th Gen Intel Core i9-12900H, 1 CPU, 20 logical and 14 physical cores                                                                                                                      .NET SDK 8.0.200                                                                                                                                                                              [Host]             : .NET 8.0.2 (8.0.224.6711), X64 RyuJIT AVX2                                                                                                                             .NET 6.0           : .NET 6.0.27 (6.0.2724.6912), X64 RyuJIT AVX2                                                                                                                           .NET 8.0           : .NET 8.0.2 (8.0.224.6711), X64 RyuJIT AVX2                                                                                                                             .NET Framework 4.8 : .NET Framework 4.8 (4.8.4645.0), X64 RyuJIT VectorSize=256
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Job</th>
+<th>Runtime</th>
+<th>ListSize</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Error</th>
+<th style="text-align: right;">StdDev</th>
+<th style="text-align: right;">Median</th>
+<th style="text-align: right;">Gen0</th>
+<th style="text-align: right;">Gen1</th>
+<th style="text-align: right;">Gen2</th>
+<th style="text-align: right;">Allocated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Split10</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>0</td>
+<td style="text-align: right;">34.78 ns</td>
+<td style="text-align: right;">0.744 ns</td>
+<td style="text-align: right;">0.796 ns</td>
+<td style="text-align: right;">35.05 ns</td>
+<td style="text-align: right;">0.0095</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">120 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>0</td>
+<td style="text-align: right;">36.83 ns</td>
+<td style="text-align: right;">0.130 ns</td>
+<td style="text-align: right;">0.122 ns</td>
+<td style="text-align: right;">36.79 ns</td>
+<td style="text-align: right;">0.0095</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">120 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>0</td>
+<td style="text-align: right;">43.80 ns</td>
+<td style="text-align: right;">0.265 ns</td>
+<td style="text-align: right;">0.247 ns</td>
+<td style="text-align: right;">43.85 ns</td>
+<td style="text-align: right;">0.0108</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">136 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>0</td>
+<td style="text-align: right;">43.20 ns</td>
+<td style="text-align: right;">0.122 ns</td>
+<td style="text-align: right;">0.108 ns</td>
+<td style="text-align: right;">43.19 ns</td>
+<td style="text-align: right;">0.0108</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">136 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>0</td>
+<td style="text-align: right;">27.15 ns</td>
+<td style="text-align: right;">0.180 ns</td>
+<td style="text-align: right;">0.159 ns</td>
+<td style="text-align: right;">27.16 ns</td>
+<td style="text-align: right;">0.0095</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">120 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>0</td>
+<td style="text-align: right;">27.46 ns</td>
+<td style="text-align: right;">0.070 ns</td>
+<td style="text-align: right;">0.062 ns</td>
+<td style="text-align: right;">27.44 ns</td>
+<td style="text-align: right;">0.0095</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">120 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>0</td>
+<td style="text-align: right;">28.02 ns</td>
+<td style="text-align: right;">0.183 ns</td>
+<td style="text-align: right;">0.171 ns</td>
+<td style="text-align: right;">27.97 ns</td>
+<td style="text-align: right;">0.0108</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">136 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>0</td>
+<td style="text-align: right;">28.02 ns</td>
+<td style="text-align: right;">0.153 ns</td>
+<td style="text-align: right;">0.136 ns</td>
+<td style="text-align: right;">28.00 ns</td>
+<td style="text-align: right;">0.0108</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">136 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>0</td>
+<td style="text-align: right;">42.41 ns</td>
+<td style="text-align: right;">0.089 ns</td>
+<td style="text-align: right;">0.074 ns</td>
+<td style="text-align: right;">42.42 ns</td>
+<td style="text-align: right;">0.0229</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">144 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>0</td>
+<td style="text-align: right;">42.31 ns</td>
+<td style="text-align: right;">0.056 ns</td>
+<td style="text-align: right;">0.047 ns</td>
+<td style="text-align: right;">42.31 ns</td>
+<td style="text-align: right;">0.0229</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">144 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>0</td>
+<td style="text-align: right;">59.18 ns</td>
+<td style="text-align: right;">0.095 ns</td>
+<td style="text-align: right;">0.084 ns</td>
+<td style="text-align: right;">59.18 ns</td>
+<td style="text-align: right;">0.0331</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">209 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>0</td>
+<td style="text-align: right;">59.27 ns</td>
+<td style="text-align: right;">0.105 ns</td>
+<td style="text-align: right;">0.098 ns</td>
+<td style="text-align: right;">59.27 ns</td>
+<td style="text-align: right;">0.0331</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">209 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>1</td>
+<td style="text-align: right;">72.73 ns</td>
+<td style="text-align: right;">0.849 ns</td>
+<td style="text-align: right;">0.753 ns</td>
+<td style="text-align: right;">72.67 ns</td>
+<td style="text-align: right;">0.0223</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">280 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>1</td>
+<td style="text-align: right;">73.64 ns</td>
+<td style="text-align: right;">0.234 ns</td>
+<td style="text-align: right;">0.219 ns</td>
+<td style="text-align: right;">73.65 ns</td>
+<td style="text-align: right;">0.0223</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">280 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>1</td>
+<td style="text-align: right;">79.46 ns</td>
+<td style="text-align: right;">0.268 ns</td>
+<td style="text-align: right;">0.250 ns</td>
+<td style="text-align: right;">79.49 ns</td>
+<td style="text-align: right;">0.0210</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">264 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>1</td>
+<td style="text-align: right;">79.57 ns</td>
+<td style="text-align: right;">0.225 ns</td>
+<td style="text-align: right;">0.199 ns</td>
+<td style="text-align: right;">79.57 ns</td>
+<td style="text-align: right;">0.0210</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">264 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>1</td>
+<td style="text-align: right;">59.04 ns</td>
+<td style="text-align: right;">0.286 ns</td>
+<td style="text-align: right;">0.267 ns</td>
+<td style="text-align: right;">59.04 ns</td>
+<td style="text-align: right;">0.0223</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">280 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>1</td>
+<td style="text-align: right;">58.40 ns</td>
+<td style="text-align: right;">0.222 ns</td>
+<td style="text-align: right;">0.185 ns</td>
+<td style="text-align: right;">58.42 ns</td>
+<td style="text-align: right;">0.0223</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">280 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>1</td>
+<td style="text-align: right;">61.66 ns</td>
+<td style="text-align: right;">0.254 ns</td>
+<td style="text-align: right;">0.237 ns</td>
+<td style="text-align: right;">61.60 ns</td>
+<td style="text-align: right;">0.0210</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">264 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>1</td>
+<td style="text-align: right;">61.71 ns</td>
+<td style="text-align: right;">0.165 ns</td>
+<td style="text-align: right;">0.154 ns</td>
+<td style="text-align: right;">61.72 ns</td>
+<td style="text-align: right;">0.0210</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">264 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>1</td>
+<td style="text-align: right;">82.35 ns</td>
+<td style="text-align: right;">0.184 ns</td>
+<td style="text-align: right;">0.163 ns</td>
+<td style="text-align: right;">82.31 ns</td>
+<td style="text-align: right;">0.0446</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">281 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>1</td>
+<td style="text-align: right;">82.35 ns</td>
+<td style="text-align: right;">0.232 ns</td>
+<td style="text-align: right;">0.217 ns</td>
+<td style="text-align: right;">82.30 ns</td>
+<td style="text-align: right;">0.0446</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">281 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>1</td>
+<td style="text-align: right;">86.41 ns</td>
+<td style="text-align: right;">0.195 ns</td>
+<td style="text-align: right;">0.163 ns</td>
+<td style="text-align: right;">86.41 ns</td>
+<td style="text-align: right;">0.0497</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">313 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>1</td>
+<td style="text-align: right;">86.59 ns</td>
+<td style="text-align: right;">0.361 ns</td>
+<td style="text-align: right;">0.320 ns</td>
+<td style="text-align: right;">86.55 ns</td>
+<td style="text-align: right;">0.0497</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">313 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>20</td>
+<td style="text-align: right;">168.03 ns</td>
+<td style="text-align: right;">0.511 ns</td>
+<td style="text-align: right;">0.478 ns</td>
+<td style="text-align: right;">168.10 ns</td>
+<td style="text-align: right;">0.0350</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">440 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>20</td>
+<td style="text-align: right;">174.85 ns</td>
+<td style="text-align: right;">0.596 ns</td>
+<td style="text-align: right;">0.557 ns</td>
+<td style="text-align: right;">174.64 ns</td>
+<td style="text-align: right;">0.0515</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">648 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>20</td>
+<td style="text-align: right;">221.65 ns</td>
+<td style="text-align: right;">0.825 ns</td>
+<td style="text-align: right;">0.772 ns</td>
+<td style="text-align: right;">221.69 ns</td>
+<td style="text-align: right;">0.0527</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">664 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>20</td>
+<td style="text-align: right;">187.68 ns</td>
+<td style="text-align: right;">0.618 ns</td>
+<td style="text-align: right;">0.548 ns</td>
+<td style="text-align: right;">187.51 ns</td>
+<td style="text-align: right;">0.0446</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">560 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>20</td>
+<td style="text-align: right;">112.32 ns</td>
+<td style="text-align: right;">0.479 ns</td>
+<td style="text-align: right;">0.448 ns</td>
+<td style="text-align: right;">112.24 ns</td>
+<td style="text-align: right;">0.0350</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">440 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>20</td>
+<td style="text-align: right;">127.57 ns</td>
+<td style="text-align: right;">0.407 ns</td>
+<td style="text-align: right;">0.380 ns</td>
+<td style="text-align: right;">127.45 ns</td>
+<td style="text-align: right;">0.0515</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">648 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>20</td>
+<td style="text-align: right;">159.80 ns</td>
+<td style="text-align: right;">0.635 ns</td>
+<td style="text-align: right;">0.594 ns</td>
+<td style="text-align: right;">159.78 ns</td>
+<td style="text-align: right;">0.0527</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">664 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>20</td>
+<td style="text-align: right;">136.64 ns</td>
+<td style="text-align: right;">0.600 ns</td>
+<td style="text-align: right;">0.532 ns</td>
+<td style="text-align: right;">136.61 ns</td>
+<td style="text-align: right;">0.0446</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">560 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>20</td>
+<td style="text-align: right;">184.13 ns</td>
+<td style="text-align: right;">0.570 ns</td>
+<td style="text-align: right;">0.505 ns</td>
+<td style="text-align: right;">184.26 ns</td>
+<td style="text-align: right;">0.0701</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">441 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>20</td>
+<td style="text-align: right;">197.53 ns</td>
+<td style="text-align: right;">0.915 ns</td>
+<td style="text-align: right;">0.714 ns</td>
+<td style="text-align: right;">197.50 ns</td>
+<td style="text-align: right;">0.1032</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">650 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>20</td>
+<td style="text-align: right;">254.25 ns</td>
+<td style="text-align: right;">0.682 ns</td>
+<td style="text-align: right;">0.605 ns</td>
+<td style="text-align: right;">254.15 ns</td>
+<td style="text-align: right;">0.1159</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">730 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>20</td>
+<td style="text-align: right;">216.60 ns</td>
+<td style="text-align: right;">0.579 ns</td>
+<td style="text-align: right;">0.542 ns</td>
+<td style="text-align: right;">216.73 ns</td>
+<td style="text-align: right;">0.0968</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">610 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>1000</td>
+<td style="text-align: right;">4,659.30 ns</td>
+<td style="text-align: right;">7.892 ns</td>
+<td style="text-align: right;">6.996 ns</td>
+<td style="text-align: right;">4,657.81 ns</td>
+<td style="text-align: right;">0.6866</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">8696 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>1000</td>
+<td style="text-align: right;">3,730.50 ns</td>
+<td style="text-align: right;">13.624 ns</td>
+<td style="text-align: right;">12.744 ns</td>
+<td style="text-align: right;">3,729.67 ns</td>
+<td style="text-align: right;">0.4196</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">5312 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>1000</td>
+<td style="text-align: right;">7,879.82 ns</td>
+<td style="text-align: right;">38.476 ns</td>
+<td style="text-align: right;">35.991 ns</td>
+<td style="text-align: right;">7,874.00 ns</td>
+<td style="text-align: right;">1.8921</td>
+<td style="text-align: right;">0.0458</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">23816 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>1000</td>
+<td style="text-align: right;">4,705.97 ns</td>
+<td style="text-align: right;">21.447 ns</td>
+<td style="text-align: right;">19.012 ns</td>
+<td style="text-align: right;">4,705.78 ns</td>
+<td style="text-align: right;">0.9766</td>
+<td style="text-align: right;">0.0153</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">12312 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>1000</td>
+<td style="text-align: right;">2,938.31 ns</td>
+<td style="text-align: right;">11.088 ns</td>
+<td style="text-align: right;">10.372 ns</td>
+<td style="text-align: right;">2,939.48 ns</td>
+<td style="text-align: right;">0.6905</td>
+<td style="text-align: right;">0.0114</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">8696 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>1000</td>
+<td style="text-align: right;">2,025.02 ns</td>
+<td style="text-align: right;">3.930 ns</td>
+<td style="text-align: right;">3.484 ns</td>
+<td style="text-align: right;">2,024.77 ns</td>
+<td style="text-align: right;">0.4196</td>
+<td style="text-align: right;">0.0038</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">5312 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>1000</td>
+<td style="text-align: right;">5,583.41 ns</td>
+<td style="text-align: right;">19.309 ns</td>
+<td style="text-align: right;">17.117 ns</td>
+<td style="text-align: right;">5,585.56 ns</td>
+<td style="text-align: right;">1.8921</td>
+<td style="text-align: right;">0.0610</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">23816 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>1000</td>
+<td style="text-align: right;">3,116.25 ns</td>
+<td style="text-align: right;">7.714 ns</td>
+<td style="text-align: right;">6.839 ns</td>
+<td style="text-align: right;">3,116.61 ns</td>
+<td style="text-align: right;">0.9804</td>
+<td style="text-align: right;">0.0114</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">12312 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>1000</td>
+<td style="text-align: right;">5,353.31 ns</td>
+<td style="text-align: right;">17.838 ns</td>
+<td style="text-align: right;">16.686 ns</td>
+<td style="text-align: right;">5,350.57 ns</td>
+<td style="text-align: right;">1.5259</td>
+<td style="text-align: right;">0.0229</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">9628 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>1000</td>
+<td style="text-align: right;">3,964.31 ns</td>
+<td style="text-align: right;">10.418 ns</td>
+<td style="text-align: right;">9.745 ns</td>
+<td style="text-align: right;">3,963.76 ns</td>
+<td style="text-align: right;">0.8545</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">5392 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>1000</td>
+<td style="text-align: right;">8,958.04 ns</td>
+<td style="text-align: right;">18.071 ns</td>
+<td style="text-align: right;">16.019 ns</td>
+<td style="text-align: right;">8,957.69 ns</td>
+<td style="text-align: right;">4.0741</td>
+<td style="text-align: right;">0.1221</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">25643 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>1000</td>
+<td style="text-align: right;">5,587.55 ns</td>
+<td style="text-align: right;">10.221 ns</td>
+<td style="text-align: right;">9.561 ns</td>
+<td style="text-align: right;">5,587.37 ns</td>
+<td style="text-align: right;">1.9913</td>
+<td style="text-align: right;">0.0305</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">12541 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>10000</td>
+<td style="text-align: right;">44,285.11 ns</td>
+<td style="text-align: right;">197.826 ns</td>
+<td style="text-align: right;">185.047 ns</td>
+<td style="text-align: right;">44,257.20 ns</td>
+<td style="text-align: right;">6.4087</td>
+<td style="text-align: right;">0.7324</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">80824 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>10000</td>
+<td style="text-align: right;">34,991.80 ns</td>
+<td style="text-align: right;">80.992 ns</td>
+<td style="text-align: right;">75.760 ns</td>
+<td style="text-align: right;">34,968.03 ns</td>
+<td style="text-align: right;">3.6011</td>
+<td style="text-align: right;">0.3052</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">45216 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>10000</td>
+<td style="text-align: right;">76,120.59 ns</td>
+<td style="text-align: right;">284.533 ns</td>
+<td style="text-align: right;">252.231 ns</td>
+<td style="text-align: right;">76,194.53 ns</td>
+<td style="text-align: right;">18.4326</td>
+<td style="text-align: right;">3.4180</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">232744 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>10000</td>
+<td style="text-align: right;">45,649.65 ns</td>
+<td style="text-align: right;">301.484 ns</td>
+<td style="text-align: right;">251.753 ns</td>
+<td style="text-align: right;">45,585.16 ns</td>
+<td style="text-align: right;">9.5825</td>
+<td style="text-align: right;">1.1597</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">120616 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>10000</td>
+<td style="text-align: right;">27,637.12 ns</td>
+<td style="text-align: right;">115.936 ns</td>
+<td style="text-align: right;">108.446 ns</td>
+<td style="text-align: right;">27,680.14 ns</td>
+<td style="text-align: right;">6.4392</td>
+<td style="text-align: right;">0.9155</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">80824 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>10000</td>
+<td style="text-align: right;">17,540.92 ns</td>
+<td style="text-align: right;">79.912 ns</td>
+<td style="text-align: right;">70.840 ns</td>
+<td style="text-align: right;">17,526.46 ns</td>
+<td style="text-align: right;">3.6011</td>
+<td style="text-align: right;">0.3357</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">45216 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>10000</td>
+<td style="text-align: right;">51,725.74 ns</td>
+<td style="text-align: right;">207.773 ns</td>
+<td style="text-align: right;">184.186 ns</td>
+<td style="text-align: right;">51,727.44 ns</td>
+<td style="text-align: right;">18.4937</td>
+<td style="text-align: right;">4.3945</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">232744 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>10000</td>
+<td style="text-align: right;">28,468.41 ns</td>
+<td style="text-align: right;">78.064 ns</td>
+<td style="text-align: right;">73.022 ns</td>
+<td style="text-align: right;">28,478.74 ns</td>
+<td style="text-align: right;">9.6130</td>
+<td style="text-align: right;">1.2207</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">120616 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>10000</td>
+<td style="text-align: right;">52,063.23 ns</td>
+<td style="text-align: right;">589.596 ns</td>
+<td style="text-align: right;">522.662 ns</td>
+<td style="text-align: right;">51,859.29 ns</td>
+<td style="text-align: right;">14.0991</td>
+<td style="text-align: right;">1.5259</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">89070 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>10000</td>
+<td style="text-align: right;">37,361.94 ns</td>
+<td style="text-align: right;">113.097 ns</td>
+<td style="text-align: right;">100.257 ns</td>
+<td style="text-align: right;">37,354.12 ns</td>
+<td style="text-align: right;">7.3242</td>
+<td style="text-align: right;">0.5493</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">46258 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>10000</td>
+<td style="text-align: right;">89,433.33 ns</td>
+<td style="text-align: right;">354.915 ns</td>
+<td style="text-align: right;">277.095 ns</td>
+<td style="text-align: right;">89,371.21 ns</td>
+<td style="text-align: right;">39.5508</td>
+<td style="text-align: right;">8.7891</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">249509 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>10000</td>
+<td style="text-align: right;">54,527.73 ns</td>
+<td style="text-align: right;">106.232 ns</td>
+<td style="text-align: right;">88.708 ns</td>
+<td style="text-align: right;">54,521.85 ns</td>
+<td style="text-align: right;">19.4702</td>
+<td style="text-align: right;">2.1973</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">122730 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>1000000</td>
+<td style="text-align: right;">5,533,921.21 ns</td>
+<td style="text-align: right;">22,337.859 ns</td>
+<td style="text-align: right;">19,801.930 ns</td>
+<td style="text-align: right;">5,538,833.98 ns</td>
+<td style="text-align: right;">664.0625</td>
+<td style="text-align: right;">492.1875</td>
+<td style="text-align: right;">492.1875</td>
+<td style="text-align: right;">8249699 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>1000000</td>
+<td style="text-align: right;">3,607,778.98 ns</td>
+<td style="text-align: right;">10,117.101 ns</td>
+<td style="text-align: right;">9,463.543 ns</td>
+<td style="text-align: right;">3,606,839.45 ns</td>
+<td style="text-align: right;">351.5625</td>
+<td style="text-align: right;">160.1563</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">4452475 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>1000000</td>
+<td style="text-align: right;">22,527,238.86 ns</td>
+<td style="text-align: right;">447,673.764 ns</td>
+<td style="text-align: right;">1,194,931.902 ns</td>
+<td style="text-align: right;">22,096,309.38 ns</td>
+<td style="text-align: right;">2093.7500</td>
+<td style="text-align: right;">1281.2500</td>
+<td style="text-align: right;">500.0000</td>
+<td style="text-align: right;">23449660 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>1000000</td>
+<td style="text-align: right;">5,255,326.38 ns</td>
+<td style="text-align: right;">26,249.182 ns</td>
+<td style="text-align: right;">21,919.255 ns</td>
+<td style="text-align: right;">5,251,902.34 ns</td>
+<td style="text-align: right;">953.1250</td>
+<td style="text-align: right;">468.7500</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">12051877 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>1000000</td>
+<td style="text-align: right;">4,054,003.67 ns</td>
+<td style="text-align: right;">58,829.348 ns</td>
+<td style="text-align: right;">49,125.170 ns</td>
+<td style="text-align: right;">4,052,357.81 ns</td>
+<td style="text-align: right;">664.0625</td>
+<td style="text-align: right;">492.1875</td>
+<td style="text-align: right;">492.1875</td>
+<td style="text-align: right;">8249696 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>1000000</td>
+<td style="text-align: right;">1,792,539.66 ns</td>
+<td style="text-align: right;">13,426.802 ns</td>
+<td style="text-align: right;">11,902.511 ns</td>
+<td style="text-align: right;">1,791,585.25 ns</td>
+<td style="text-align: right;">353.5156</td>
+<td style="text-align: right;">320.3125</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">4452473 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>1000000</td>
+<td style="text-align: right;">24,518,900.84 ns</td>
+<td style="text-align: right;">565,878.965 ns</td>
+<td style="text-align: right;">1,668,506.897 ns</td>
+<td style="text-align: right;">23,946,503.12 ns</td>
+<td style="text-align: right;">2312.5000</td>
+<td style="text-align: right;">2281.2500</td>
+<td style="text-align: right;">843.7500</td>
+<td style="text-align: right;">23449754 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>1000000</td>
+<td style="text-align: right;">3,338,952.19 ns</td>
+<td style="text-align: right;">15,577.896 ns</td>
+<td style="text-align: right;">13,008.249 ns</td>
+<td style="text-align: right;">3,333,424.61 ns</td>
+<td style="text-align: right;">957.0313</td>
+<td style="text-align: right;">898.4375</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">12051874 B</td>
+</tr>
+<tr>
+<td>Split10</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>1000000</td>
+<td style="text-align: right;">11,028,185.09 ns</td>
+<td style="text-align: right;">366,288.327 ns</td>
+<td style="text-align: right;">1,080,009.398 ns</td>
+<td style="text-align: right;">10,865,642.19 ns</td>
+<td style="text-align: right;">1437.5000</td>
+<td style="text-align: right;">984.3750</td>
+<td style="text-align: right;">671.8750</td>
+<td style="text-align: right;">9319568 B</td>
+</tr>
+<tr>
+<td>Split100</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>1000000</td>
+<td style="text-align: right;">6,826,392.43 ns</td>
+<td style="text-align: right;">129,384.711 ns</td>
+<td style="text-align: right;">127,073.086 ns</td>
+<td style="text-align: right;">6,811,515.62 ns</td>
+<td style="text-align: right;">812.5000</td>
+<td style="text-align: right;">375.0000</td>
+<td style="text-align: right;">125.0000</td>
+<td style="text-align: right;">4596194 B</td>
+</tr>
+<tr>
+<td>Chunk10</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>1000000</td>
+<td style="text-align: right;">34,659,248.56 ns</td>
+<td style="text-align: right;">680,690.093 ns</td>
+<td style="text-align: right;">931,736.282 ns</td>
+<td style="text-align: right;">34,303,443.75 ns</td>
+<td style="text-align: right;">4062.5000</td>
+<td style="text-align: right;">1812.5000</td>
+<td style="text-align: right;">750.0000</td>
+<td style="text-align: right;">25372642 B</td>
+</tr>
+<tr>
+<td>Chunk100</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>1000000</td>
+<td style="text-align: right;">11,817,508.54 ns</td>
+<td style="text-align: right;">207,145.941 ns</td>
+<td style="text-align: right;">193,764.442 ns</td>
+<td style="text-align: right;">11,794,673.44 ns</td>
+<td style="text-align: right;">2187.5000</td>
+<td style="text-align: right;">1000.0000</td>
+<td style="text-align: right;">468.7500</td>
+<td style="text-align: right;">12310156 B</td>
+</tr>
+</tbody>
+</table>
+<h2 id="analyzing-stuff">Analyzing stuff</h2>
+<p>Well its obvious.
+Less allocation and faster using the split thingy</p>
+<h1 id="testcode">Testcode</h1>
+<details><summary>Full SourceCode</summary>
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">System.ComponentModel</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">BenchmarkDotNet.Attributes</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">BenchmarkDotNet.Jobs</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Benchmarkz</span><span class="p">;</span>
+
+<span class="na">[SimpleJob(RuntimeMoniker.Net48)]</span>
+<span class="na">[SimpleJob(RuntimeMoniker.Net60)]</span>
+<span class="na">[SimpleJob(RuntimeMoniker.Net80)]</span>
+<span class="na">[MemoryDiagnoser]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ChunkBenchmarks</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">uint</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dataSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Enumerable</span><span class="p">.</span><span class="n">Empty</span><span class="o">&lt;</span><span class="kt">uint</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="na">[Params(0, 1, 20, 1000, 10000, 1000000)]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">uint</span><span class="w"> </span><span class="n">ListSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="na">[GlobalSetup]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Setup</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">dataSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FillArray</span><span class="p">(</span><span class="n">ListSize</span><span class="p">);</span>
+
+<span class="w">    </span><span class="na">[Benchmark]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Split10</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataSet</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="m">10</span><span class="p">).</span><span class="n">ToArray</span><span class="p">();</span>
+<span class="w">    </span><span class="na">[Benchmark]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Split100</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataSet</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="m">100</span><span class="p">).</span><span class="n">ToArray</span><span class="p">();</span>
+
+<span class="w">    </span><span class="na">[Benchmark]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Chunk10</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataSet</span><span class="p">.</span><span class="n">ToChunksOfMaxSizeN</span><span class="p">(</span><span class="m">10</span><span class="p">).</span><span class="n">ToArray</span><span class="p">();</span>
+<span class="w">    </span><span class="na">[Benchmark]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Chunk100</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataSet</span><span class="p">.</span><span class="n">ToChunksOfMaxSizeN</span><span class="p">(</span><span class="m">100</span><span class="p">).</span><span class="n">ToArray</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="kt">uint</span><span class="o">&gt;</span><span class="w"> </span><span class="n">FillArray</span><span class="p">(</span><span class="kt">uint</span><span class="w"> </span><span class="n">count</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">uint</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">count</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">            </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">internal</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SplitExtensions</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">internal</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">TSource</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Split</span><span class="o">&lt;</span><span class="n">TSource</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">TSource</span><span class="o">&gt;</span><span class="w"> </span><span class="n">source</span><span class="p">,</span>
+<span class="w">                                                          </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">enumerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">source</span><span class="p">.</span><span class="n">GetEnumerator</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">enumerator</span><span class="p">.</span><span class="n">MoveNext</span><span class="p">())</span>
+<span class="w">            </span><span class="k">yield</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">arrayBufferSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">uint</span><span class="w"> </span><span class="n">chunkIndex</span><span class="p">;</span>
+<span class="w">        </span><span class="k">do</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TSource</span><span class="p">[</span><span class="n">arrayBufferSize</span><span class="p">];</span>
+<span class="w">            </span><span class="n">array</span><span class="p">[</span><span class="m">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">enumerator</span><span class="p">.</span><span class="n">Current</span><span class="p">;</span>
+<span class="w">            </span><span class="n">chunkIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">chunkIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">enumerator</span><span class="p">.</span><span class="n">MoveNext</span><span class="p">())</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// Manual resizings still more slim than lists dynamic allocation</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">chunkIndex</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span>
+<span class="w">                    </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">arrayBufferSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Min</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+<span class="w">                        </span><span class="n">Array</span><span class="p">.</span><span class="n">Resize</span><span class="p">(</span><span class="k">ref</span><span class="w"> </span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="n">arrayBufferSize</span><span class="p">);</span>
+<span class="w">                    </span><span class="p">}</span>
+
+<span class="w">                    </span><span class="n">PushToChunk</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// ReSharper disable once InlineTemporaryVariable -- Suppresses bounding checks ( not required as resized above )</span>
+<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="p">;</span>
+<span class="w">                </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">chunkIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">cache</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">enumerator</span><span class="p">.</span><span class="n">MoveNext</span><span class="p">())</span>
+<span class="w">                    </span><span class="n">PushToChunk</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="c1">// Reduces the ( possible ) fragmentation of the last chunky </span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">chunkIndex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">array</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span>
+<span class="w">                </span><span class="n">Array</span><span class="p">.</span><span class="n">Resize</span><span class="p">(</span><span class="k">ref</span><span class="w"> </span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">chunkIndex</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">array</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">chunkIndex</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">enumerator</span><span class="p">.</span><span class="n">MoveNext</span><span class="p">());</span>
+
+<span class="w">        </span><span class="k">void</span><span class="w"> </span><span class="nf">PushToChunk</span><span class="p">(</span><span class="n">TSource</span><span class="p">[]</span><span class="w"> </span><span class="n">array</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">array</span><span class="p">[</span><span class="n">chunkIndex</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">enumerator</span><span class="p">.</span><span class="n">Current</span><span class="p">;</span>
+<span class="w">            </span><span class="n">chunkIndex</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">ToChunksOfMaxSizeN</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">IEnumerable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">toChunk</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxSize</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">maxSize</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">InvalidEnumArgumentException</span><span class="p">(</span><span class="s">$&quot;{nameof(maxSize)} must be greater than 0&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">chunk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">toChunk</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">chunk</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">o</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">chunk</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">maxSize</span><span class="p">)</span>
+<span class="w">                </span><span class="k">continue</span><span class="p">;</span>
+
+<span class="w">            </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">chunk</span><span class="p">;</span>
+<span class="w">            </span><span class="n">chunk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">chunk</span><span class="p">.</span><span class="n">Any</span><span class="p">())</span>
+<span class="w">            </span><span class="k">yield</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">chunk</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</details>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "toc.integrate"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
