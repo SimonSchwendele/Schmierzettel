@@ -1,0 +1,1009 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ListSplits/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.5">
+    
+    
+      
+        <title>Enum HasFlag - Schmierzettel</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6a10b989.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/cmistyle.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#enum-hasflag-benchmark" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Schmierzettel" class="md-header__button md-logo" aria-label="Schmierzettel" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Schmierzettel
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Enum HasFlag
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  SoftwareentwicklungsProzess mit Git
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../ArrayLength/" class="md-tabs__link">
+          
+  
+  Benchmarks
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Schmierzettel" class="md-nav__button md-logo" aria-label="Schmierzettel" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Schmierzettel
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SoftwareentwicklungsProzess mit Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Benchmarks
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Benchmarks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ArrayLength/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Array Length
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../StringExtract/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    String extraction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ListSplits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    List Splits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Enum HasFlag
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="enum-hasflag-benchmark">Enum HasFlag() Benchmark</h1>
+<h1 id="benchmark-1-native-dotnet-method">Benchmark 1: Native Dotnet Method</h1>
+<p>In C# theres the possibility to just call <code>Enum.HasFlag(enumMember)</code>.
+This method <a href="https://github.com/dotnet/coreclr/pull/13748">has been rewritten</a> during the Release of dotnet 5.
+Thus the Benchmarks for net48 will suck really really bad.
+The reason behind this mess is due to the fact that it had to perform some checks and is not jit optimized </p>
+<h1 id="benchmark-2-genericcontainsflag">Benchmark 2: GenericContainsFlag</h1>
+<p>Flagged enums are actually kinda simple.
+They're only binary values.
+Flag A = 0x0001
+Flag B = 0x0010
+-&gt; Flag A AND Flag B = 0x0011</p>
+<p>So its sufficient to perform a logical OR operation:<br />
+<div class="highlight"><pre><span></span><code>  0x0011
+&amp; 0x0100
+= 0x0000 // Does not contain this EnumMember
+
+  0x0011
+&amp; 0x0010
+= 0x0010 // Contains this EnumMember
+</code></pre></div></p>
+<p>This generic approach has to deal with the same problem as the native implementation.
+FlagChecks can only work on enum classes which contan the <code>[Flags]</code> attribute.</p>
+<p>I'll go for a cast here and I expect this to peform even worse than dotnets native method</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">ContainsFlagGeneric</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">@enum</span><span class="p">,</span>
+<span class="w">                                       </span><span class="n">T</span><span class="w"> </span><span class="n">flagToTest</span><span class="p">)</span>
+<span class="w">        </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="p">:</span><span class="w"> </span><span class="n">Enum</span>
+<span class="w">        </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="n">@enum</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="n">flagToTest</span><span class="p">))</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+</code></pre></div>
+<h1 id="benchmark-3-explicitcontainsflag">Benchmark 3: ExplicitContainsFlag</h1>
+<p>When the EnumType is known ( and thus its ensured that it contains the attribute ) I can directly perform the logical AND .
+While this implementation will outperform both other Methods by large using net48 it might perform worse on more recent targetFrameworks.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">ContainsFlag</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">TestEnum</span><span class="w"> </span><span class="n">testEnum</span><span class="p">,</span>
+<span class="w">                                    </span><span class="n">TestEnum</span><span class="w"> </span><span class="n">flag</span><span class="p">)</span>
+<span class="w">        </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">testEnum</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">flag</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+</code></pre></div>
+<h1 id="results">Results</h1>
+<p>Well everything as expected</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Job</th>
+<th>Runtime</th>
+<th>TestEnum</th>
+<th style="text-align: right;">Mean</th>
+<th style="text-align: right;">Error</th>
+<th style="text-align: right;">StdDev</th>
+<th style="text-align: right;">Median</th>
+<th style="text-align: right;">Gen0</th>
+<th style="text-align: right;">Allocated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DotnetsHasFlag</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>X1</td>
+<td style="text-align: right;">0.0024 ns</td>
+<td style="text-align: right;">0.0041 ns</td>
+<td style="text-align: right;">0.0039 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>ContainsFlagGeneric</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>X1</td>
+<td style="text-align: right;">30.0068 ns</td>
+<td style="text-align: right;">0.1473 ns</td>
+<td style="text-align: right;">0.1306 ns</td>
+<td style="text-align: right;">30.0199 ns</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">96 B</td>
+</tr>
+<tr>
+<td>ContainsFlagExplicit</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>X1</td>
+<td style="text-align: right;">0.0077 ns</td>
+<td style="text-align: right;">0.0045 ns</td>
+<td style="text-align: right;">0.0042 ns</td>
+<td style="text-align: right;">0.0064 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>DotnetsHasFlag</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>X1</td>
+<td style="text-align: right;">0.0003 ns</td>
+<td style="text-align: right;">0.0005 ns</td>
+<td style="text-align: right;">0.0005 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>ContainsFlagGeneric</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>X1</td>
+<td style="text-align: right;">18.3309 ns</td>
+<td style="text-align: right;">0.0862 ns</td>
+<td style="text-align: right;">0.0720 ns</td>
+<td style="text-align: right;">18.3499 ns</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">96 B</td>
+</tr>
+<tr>
+<td>ContainsFlagExplicit</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>X1</td>
+<td style="text-align: right;">0.0002 ns</td>
+<td style="text-align: right;">0.0004 ns</td>
+<td style="text-align: right;">0.0003 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>DotnetsHasFlag</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>X1</td>
+<td style="text-align: right;">9.5784 ns</td>
+<td style="text-align: right;">0.0195 ns</td>
+<td style="text-align: right;">0.0173 ns</td>
+<td style="text-align: right;">9.5734 ns</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">48 B</td>
+</tr>
+<tr>
+<td>ContainsFlagGeneric</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>X1</td>
+<td style="text-align: right;">48.1679 ns</td>
+<td style="text-align: right;">0.1372 ns</td>
+<td style="text-align: right;">0.1216 ns</td>
+<td style="text-align: right;">48.1179 ns</td>
+<td style="text-align: right;">0.0153</td>
+<td style="text-align: right;">96 B</td>
+</tr>
+<tr>
+<td>ContainsFlagExplicit</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>X1</td>
+<td style="text-align: right;">0.0102 ns</td>
+<td style="text-align: right;">0.0056 ns</td>
+<td style="text-align: right;">0.0053 ns</td>
+<td style="text-align: right;">0.0111 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>DotnetsHasFlag</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>X1, X2, X4</td>
+<td style="text-align: right;">0.0080 ns</td>
+<td style="text-align: right;">0.0052 ns</td>
+<td style="text-align: right;">0.0049 ns</td>
+<td style="text-align: right;">0.0087 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>ContainsFlagGeneric</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>X1, X2, X4</td>
+<td style="text-align: right;">29.6568 ns</td>
+<td style="text-align: right;">0.0660 ns</td>
+<td style="text-align: right;">0.0617 ns</td>
+<td style="text-align: right;">29.6794 ns</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">96 B</td>
+</tr>
+<tr>
+<td>ContainsFlagExplicit</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>X1, X2, X4</td>
+<td style="text-align: right;">0.0006 ns</td>
+<td style="text-align: right;">0.0024 ns</td>
+<td style="text-align: right;">0.0022 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>DotnetsHasFlag</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>X1, X2, X4</td>
+<td style="text-align: right;">0.0011 ns</td>
+<td style="text-align: right;">0.0014 ns</td>
+<td style="text-align: right;">0.0013 ns</td>
+<td style="text-align: right;">0.0005 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>ContainsFlagGeneric</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>X1, X2, X4</td>
+<td style="text-align: right;">20.8817 ns</td>
+<td style="text-align: right;">0.0855 ns</td>
+<td style="text-align: right;">0.0714 ns</td>
+<td style="text-align: right;">20.8671 ns</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">96 B</td>
+</tr>
+<tr>
+<td>ContainsFlagExplicit</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>X1, X2, X4</td>
+<td style="text-align: right;">0.0003 ns</td>
+<td style="text-align: right;">0.0006 ns</td>
+<td style="text-align: right;">0.0006 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>DotnetsHasFlag</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>X1, X2, X4</td>
+<td style="text-align: right;">10.0027 ns</td>
+<td style="text-align: right;">0.0244 ns</td>
+<td style="text-align: right;">0.0216 ns</td>
+<td style="text-align: right;">10.0089 ns</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">48 B</td>
+</tr>
+<tr>
+<td>ContainsFlagGeneric</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>X1, X2, X4</td>
+<td style="text-align: right;">48.1968 ns</td>
+<td style="text-align: right;">0.1167 ns</td>
+<td style="text-align: right;">0.1035 ns</td>
+<td style="text-align: right;">48.1573 ns</td>
+<td style="text-align: right;">0.0153</td>
+<td style="text-align: right;">96 B</td>
+</tr>
+<tr>
+<td>ContainsFlagExplicit</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>X1, X2, X4</td>
+<td style="text-align: right;">0.0076 ns</td>
+<td style="text-align: right;">0.0029 ns</td>
+<td style="text-align: right;">0.0027 ns</td>
+<td style="text-align: right;">0.0076 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>DotnetsHasFlag</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>X1, X(...) X512 [47]</td>
+<td style="text-align: right;">0.0144 ns</td>
+<td style="text-align: right;">0.0063 ns</td>
+<td style="text-align: right;">0.0056 ns</td>
+<td style="text-align: right;">0.0145 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>ContainsFlagGeneric</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>X1, X(...) X512 [47]</td>
+<td style="text-align: right;">29.5644 ns</td>
+<td style="text-align: right;">0.0550 ns</td>
+<td style="text-align: right;">0.0488 ns</td>
+<td style="text-align: right;">29.5493 ns</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">96 B</td>
+</tr>
+<tr>
+<td>ContainsFlagExplicit</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>X1, X(...) X512 [47]</td>
+<td style="text-align: right;">0.0012 ns</td>
+<td style="text-align: right;">0.0021 ns</td>
+<td style="text-align: right;">0.0020 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>DotnetsHasFlag</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>X1, X(...) X512 [47]</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.0001 ns</td>
+<td style="text-align: right;">0.0001 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>ContainsFlagGeneric</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>X1, X(...) X512 [47]</td>
+<td style="text-align: right;">20.8049 ns</td>
+<td style="text-align: right;">0.0664 ns</td>
+<td style="text-align: right;">0.0588 ns</td>
+<td style="text-align: right;">20.8043 ns</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">96 B</td>
+</tr>
+<tr>
+<td>ContainsFlagExplicit</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>X1, X(...) X512 [47]</td>
+<td style="text-align: right;">0.0006 ns</td>
+<td style="text-align: right;">0.0010 ns</td>
+<td style="text-align: right;">0.0008 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>DotnetsHasFlag</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>X1, X(...) X512 [47]</td>
+<td style="text-align: right;">9.9909 ns</td>
+<td style="text-align: right;">0.0198 ns</td>
+<td style="text-align: right;">0.0165 ns</td>
+<td style="text-align: right;">9.9934 ns</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">48 B</td>
+</tr>
+<tr>
+<td>ContainsFlagGeneric</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>X1, X(...) X512 [47]</td>
+<td style="text-align: right;">48.0942 ns</td>
+<td style="text-align: right;">0.0702 ns</td>
+<td style="text-align: right;">0.0622 ns</td>
+<td style="text-align: right;">48.0951 ns</td>
+<td style="text-align: right;">0.0153</td>
+<td style="text-align: right;">96 B</td>
+</tr>
+<tr>
+<td>ContainsFlagExplicit</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>X1, X(...) X512 [47]</td>
+<td style="text-align: right;">0.0060 ns</td>
+<td style="text-align: right;">0.0041 ns</td>
+<td style="text-align: right;">0.0038 ns</td>
+<td style="text-align: right;">0.0067 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>DotnetsHasFlag</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>X1, X(...)X1024 [54]</td>
+<td style="text-align: right;">0.0051 ns</td>
+<td style="text-align: right;">0.0049 ns</td>
+<td style="text-align: right;">0.0046 ns</td>
+<td style="text-align: right;">0.0045 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>ContainsFlagGeneric</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>X1, X(...)X1024 [54]</td>
+<td style="text-align: right;">27.9598 ns</td>
+<td style="text-align: right;">0.0830 ns</td>
+<td style="text-align: right;">0.0777 ns</td>
+<td style="text-align: right;">27.9430 ns</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">96 B</td>
+</tr>
+<tr>
+<td>ContainsFlagExplicit</td>
+<td>.NET 6.0</td>
+<td>.NET 6.0</td>
+<td>X1, X(...)X1024 [54]</td>
+<td style="text-align: right;">0.0034 ns</td>
+<td style="text-align: right;">0.0047 ns</td>
+<td style="text-align: right;">0.0044 ns</td>
+<td style="text-align: right;">0.0011 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>DotnetsHasFlag</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>X1, X(...)X1024 [54]</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">0.0001 ns</td>
+<td style="text-align: right;">0.0001 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>ContainsFlagGeneric</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>X1, X(...)X1024 [54]</td>
+<td style="text-align: right;">20.5399 ns</td>
+<td style="text-align: right;">0.1075 ns</td>
+<td style="text-align: right;">0.1006 ns</td>
+<td style="text-align: right;">20.5378 ns</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">96 B</td>
+</tr>
+<tr>
+<td>ContainsFlagExplicit</td>
+<td>.NET 8.0</td>
+<td>.NET 8.0</td>
+<td>X1, X(...)X1024 [54]</td>
+<td style="text-align: right;">0.0004 ns</td>
+<td style="text-align: right;">0.0009 ns</td>
+<td style="text-align: right;">0.0008 ns</td>
+<td style="text-align: right;">0.0000 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td>DotnetsHasFlag</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>X1, X(...)X1024 [54]</td>
+<td style="text-align: right;">9.9675 ns</td>
+<td style="text-align: right;">0.0257 ns</td>
+<td style="text-align: right;">0.0228 ns</td>
+<td style="text-align: right;">9.9658 ns</td>
+<td style="text-align: right;">0.0076</td>
+<td style="text-align: right;">48 B</td>
+</tr>
+<tr>
+<td>ContainsFlagGeneric</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>X1, X(...)X1024 [54]</td>
+<td style="text-align: right;">47.9990 ns</td>
+<td style="text-align: right;">0.1296 ns</td>
+<td style="text-align: right;">0.1149 ns</td>
+<td style="text-align: right;">47.9698 ns</td>
+<td style="text-align: right;">0.0153</td>
+<td style="text-align: right;">96 B</td>
+</tr>
+<tr>
+<td>ContainsFlagExplicit</td>
+<td>.NET Framework 4.8</td>
+<td>.NET Framework 4.8</td>
+<td>X1, X(...)X1024 [54]</td>
+<td style="text-align: right;">0.0055 ns</td>
+<td style="text-align: right;">0.0037 ns</td>
+<td style="text-align: right;">0.0034 ns</td>
+<td style="text-align: right;">0.0054 ns</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+</tbody>
+</table>
+<h1 id="testcode">Testcode</h1>
+<details><summary>Full SourceCode</summary>
+
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">BenchmarkDotNet.Attributes</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">BenchmarkDotNet.Jobs</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">Benchmarkz</span><span class="p">;</span>
+
+<span class="na">[SimpleJob(RuntimeMoniker.Net48)]</span>
+<span class="na">[SimpleJob(RuntimeMoniker.Net60)]</span>
+<span class="na">[SimpleJob(RuntimeMoniker.Net80)]</span>
+<span class="na">[MemoryDiagnoser(displayGenColumns: true)]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">EnumFlags</span>
+<span class="p">{</span>
+<span class="na">[Params(0x0001,</span>
+<span class="na">        0x0007,</span>
+<span class="na">        0x03FF,</span>
+<span class="na">        0x07FF)]</span>
+<span class="k">public</span><span class="w"> </span><span class="n">TestEnum</span><span class="w"> </span><span class="n">TestEnum</span><span class="p">;</span>
+
+<span class="w">    </span><span class="na">[Benchmark]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DotnetsHasFlag</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TestEnum</span><span class="p">.</span><span class="n">HasFlag</span><span class="p">(</span><span class="n">TestEnum</span><span class="p">.</span><span class="n">X4</span><span class="p">);</span>
+
+<span class="w">    </span><span class="na">[Benchmark]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ContainsFlagGeneric</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TestEnum</span><span class="p">.</span><span class="n">ContainsFlagGeneric</span><span class="p">(</span><span class="n">TestEnum</span><span class="p">.</span><span class="n">X4</span><span class="p">);</span>
+
+<span class="w">    </span><span class="na">[Benchmark]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ContainsFlagExplicit</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TestEnum</span><span class="p">.</span><span class="n">ContainsFlag</span><span class="p">(</span><span class="n">TestEnum</span><span class="p">.</span><span class="n">X4</span><span class="p">);</span>
+
+<span class="p">}</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">EnumExtensions</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">ContainsFlagGeneric</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">@enum</span><span class="p">,</span>
+<span class="w">                                              </span><span class="n">T</span><span class="w"> </span><span class="n">flagToTest</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="p">:</span><span class="w"> </span><span class="n">Enum</span>
+<span class="w">        </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="n">@enum</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="n">flagToTest</span><span class="p">))</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">ContainsFlag</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">TestEnum</span><span class="w"> </span><span class="n">testEnum</span><span class="p">,</span>
+<span class="w">                                    </span><span class="n">TestEnum</span><span class="w"> </span><span class="n">flag</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">testEnum</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">flag</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="na">[Flags]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">TestEnum</span>
+<span class="p">{</span>
+<span class="n">X0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span>
+<span class="n">X1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span>
+<span class="n">X2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="m">1</span><span class="p">,</span>
+<span class="n">X4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="m">2</span><span class="p">,</span>
+<span class="n">X8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="m">3</span><span class="p">,</span>
+<span class="n">X16</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="m">4</span><span class="p">,</span>
+<span class="n">X32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="m">5</span><span class="p">,</span>
+<span class="n">X64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="m">6</span><span class="p">,</span>
+<span class="n">X128</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="m">7</span><span class="p">,</span>
+<span class="n">X265</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="m">8</span><span class="p">,</span>
+<span class="n">X512</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="m">9</span><span class="p">,</span>
+<span class="n">X1024</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="m">10</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "toc.integrate"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
