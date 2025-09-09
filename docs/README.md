@@ -196,6 +196,7 @@ gitGraph
         checkout master
         merge featureA
 ```
+
 ## Vorteile
 * Immens weniger Wartungsaufwand durch weniger Branches
 * Sehr gute Integration in CI/CD Workflows erlaubt es zB dem PM ein Feature wöhrend der Entwicklung tatsächlich "wachsen zu sehen"
@@ -214,3 +215,70 @@ gitGraph
 ## Nachteile ( CMI )
 * Neues Versionierungsmodell muss erst kommuniziert werden
 * Möglicherweise fehlt bei manchen Kunden die Akzeptanz für dieses Model
+
+# FeatureFreeze
+
+Besonders der Release zum Jahreswechsel ist in seiner aktuellen Form sehr mühsam und fehleranfällig.  
+Gegenwärtig werden **die meisten PRs in den release Branch gepickt**.
+Aus diesem Grund können wir hier den Aufwand und die Komplexität minimieren,
+indem wir die Ordnung umkehren.
+Ein neuer branch **next** wird zum Featurefreeze erstellt.
+Alles was **nicht** im neuen Release landen soll, wird nach **next** gemerged.
+
+```mermaid
+
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'showBranches': true, 'showCommitLabel':true,'mainBranchName': 'develop'}} }%%
+gitGraph
+  commit
+
+  branch feature/A
+  checkout feature/A
+  commit tag:"Fix thing 1"
+  commit tag:"Fix thing 2"
+  checkout develop
+  merge feature/A tag:"[STX-110] Fix bug before FF"
+
+  branch feature/B
+  checkout feature/B
+  commit tag:"Implement new feature"
+  commit tag:"fix tests"
+
+  checkout develop
+  commit id:"26.0" tag:"Feature Freeze"
+
+  branch next
+  checkout next
+  commit
+
+  checkout feature/B
+  commit tag:"Fix thing 1"
+  commit tag:"Whoops didnt finish before ff"
+  checkout develop
+  merge feature/B tag:"[STX-111] new feature"
+
+  checkout next
+  merge develop tag:"weekly rebase"
+
+  branch feature/C
+  commit tag:"new feature"
+  commit
+  commit
+  checkout next
+  merge feature/C tag:"[STX-112] Something new"
+
+  checkout develop
+  commit id:"26.0.0" tag:"New Release 26.0.0.1000"
+
+  branch v.26.0
+  checkout v.26.0
+  commit tag:"New Release 26.0.0.1000"
+
+  checkout develop
+  merge next tag:"Implement as usual"
+
+  checkout v.26.0
+  branch release/v.26.0.1
+  checkout release/v.26.0.1
+  commit tag:"[STX-113] Cherrypick fix"
+ 
+```
